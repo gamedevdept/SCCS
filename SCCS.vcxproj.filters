@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\Users\rladu\Downloads\SCCS-master\SCCS-master\SCCS\screen.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\Users\rladu\Downloads\SCCS-master\SCCS-master\SCCS\main.cpp">
+    <ClCompile Include="screen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Users\rladu\Downloads\SCCS-master\SCCS-master\SCCS\screen.h">
+    <ClInclude Include="screen.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
