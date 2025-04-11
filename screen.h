@@ -7,17 +7,13 @@ using namespace std;
 class Screen
 {
 private:
-	int width;
-	int height;
+	const int width = 161;
+	const int height = 46;
 
 public:
-	Screen()
-	{
-		width = 161;
-		height = 46;
-	}
 
 	void screenClear();
 	void screenEdge();
 	void screenText(string message, int x, int y);
+	int getHeight();
 };
