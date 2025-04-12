@@ -12,9 +12,10 @@ void Cursor::gotoXY(int x, int y)
 	Cur.X = x;
 	Cur.Y = y;
 	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
+
 }
 
 void Cursor::gotoDefault()
 {
-	gotoXY(1, scr.getHeight());
+	gotoXY(1, scr.getHeight() + 1);
 }

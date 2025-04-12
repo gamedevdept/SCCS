@@ -132,8 +132,15 @@
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="architecture.h" />
     <ClInclude Include="cursor.h" />
+    <ClInclude Include="city.h" />
+    <ClInclude Include="ending.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="screen.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="SCCS.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

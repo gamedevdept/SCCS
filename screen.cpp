@@ -22,7 +22,6 @@ void Screen::screenClear()
 	}
 
 	cur.gotoXY(1, Screen::height + 1);
-	cout << endl;
 
 }
 
@@ -51,6 +50,7 @@ void Screen::screenEdge()
 		cout << "¦¡";
 	}
 	cout << "¦¥";
+	cur.gotoDefault();
 }
 
 void Screen::screenText(string message, int x, int y)
@@ -60,7 +60,77 @@ void Screen::screenText(string message, int x, int y)
 	cur.gotoDefault();
 }
 
+void Screen::centerText(string message, int y)
+{
+	int length = message.length();
+	cur.gotoXY((Screen::width / 2) - length / 2, y);
+	cout << message;
+	cur.gotoDefault();
+}
+
 int Screen::getHeight()
 {
 	return Screen::height;
+}
+
+int Screen::getWidth()
+{
+	return Screen::width;
+}
+
+Box* Screen::box(int startx, int starty, int width, int height, int centerAlign)
+{
+	Box* box = new Box;
+
+	if (centerAlign == 1)
+	{
+		startx = (getWidth() / 2) - (width / 2);
+	}
+
+	box->startx = startx;
+	box->starty = starty;
+	box->width = width;
+	box->height = height;
+
+	cur.gotoXY(startx, starty);
+	cout << "¦£";
+	for (int i = 0; i < width - 2; i++)
+	{
+		cout << "¦¡";
+	}
+	cout << "¦¤";
+	for (int i = 1; i < height - 1; i++)
+	{
+		cur.gotoXY(startx, starty + i);
+		cout << "¦¢";
+		for (int j = 0; j < width - 2; j++)
+		{
+			cout << " ";
+		}
+		cout << "¦¢";
+	}
+	cur.gotoXY(startx, starty + height - 1);
+	cout << "¦¦";
+	for (int i = 0; i < width - 2; i++)
+	{
+		cout << "¦¡";
+	}
+	cout << "¦¥";
+
+	return box;
+}
+
+void Screen::boxText(Box* box, string message, int centerAlign)
+{
+	int x = box->startx + 1;
+	int y = box->starty + 1;
+
+	if (centerAlign == 1)
+	{
+		x += ((box->width - 2) / 2) - (message.length() / 2) - 1;
+	}
+
+	cur.gotoXY(x, y);
+	cout << message;
+	cur.gotoDefault();
 }

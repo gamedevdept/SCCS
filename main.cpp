@@ -12,7 +12,10 @@ int main()
 
 	screen.screenEdge();
 	screen.screenClear();
-	screen.screenText("Hello", 1, 1);
+	screen.centerText("SCCS", 3);
+
+	box* testBox = screen.box(70, 40, 30, 3, 1);
+	screen.boxText(testBox, "Press any button to start", 1);
 
 	return 0;
 }
