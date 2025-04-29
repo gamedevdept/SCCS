@@ -17,7 +17,7 @@ private:
 public:
 	textBox(int x, int y, string message, int center = 0)
 	{
-		Screen screen;
+		Screen scr;
 
 		textBox::x = x;
 		textBox::y = y;
@@ -25,7 +25,7 @@ public:
 		textBox::message = message;
 		if (center == 1)
 		{
-			textBox::x = (screen.getWidth() / 2) - (textBox::length / 2);
+			textBox::x = (scr.getWidth() / 2) - (textBox::length / 2);
 		}
 		gotoXY(textBox::x, textBox::y);
 		cout << message;

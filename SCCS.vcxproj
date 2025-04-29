@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="asciiArt.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="keyboard.cpp" />
     <ClCompile Include="keyboard.h" />
@@ -135,13 +136,9 @@
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="architecture.h" />
-    <ClInclude Include="asciiart.h" />
+    <ClInclude Include="asciiArt.h" />
     <ClInclude Include="cursor.h" />
-    <ClInclude Include="city.h" />
-    <ClInclude Include="ending.h" />
     <ClInclude Include="textbox.h" />
-    <ClInclude Include="player.h" />
     <ClInclude Include="screen.h" />
   </ItemGroup>
   <ItemGroup>

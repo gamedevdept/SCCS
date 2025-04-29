@@ -5,19 +5,24 @@
 #include "screen.h"
 #include "keyboard.h"
 #include "textbox.h"
+#include "asciiArt.h"
 
 using namespace std;
 
 int main()
 {
-	Screen screen;
+	Screen scr;
 
-	screen.screenEdge();
+	scr.screenEdge();
 	
-	textBox* title = new textBox(30, 20, "게임 제목", 1);
+
+	textBox* title = new textBox(30, 20, "SCCS", 1);
+	Ascii* asciiTitle = new Ascii("SCCS.txt", 30, 20);
 	keyboardHit();
-	screen.horizontalLine(30);
+	scr.horizontalLine(30);
 	delete title;
+	delete asciiTitle;
+
 
 	return 0;
 }
