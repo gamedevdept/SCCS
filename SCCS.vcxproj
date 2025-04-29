@@ -128,14 +128,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cursor.cpp" />
+    <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="keyboard.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="objects.cpp" />
     <ClCompile Include="screen.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="architecture.h" />
+    <ClInclude Include="asciiart.h" />
     <ClInclude Include="cursor.h" />
     <ClInclude Include="city.h" />
     <ClInclude Include="ending.h" />
+    <ClInclude Include="textbox.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="screen.h" />
   </ItemGroup>

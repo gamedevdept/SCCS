@@ -6,7 +6,7 @@ using namespace std;
 
 Screen scr;
 
-void Cursor::gotoXY(int x, int y)
+void gotoXY(int x, int y)
 {
 	COORD Cur;
 	Cur.X = x;
@@ -15,7 +15,7 @@ void Cursor::gotoXY(int x, int y)
 
 }
 
-void Cursor::gotoDefault()
+void gotoDefault()
 {
 	gotoXY(1, scr.getHeight() + 1);
 }

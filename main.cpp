@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 #include "screen.h"
+#include "keyboard.h"
+#include "textbox.h"
 
 using namespace std;
 
@@ -11,11 +13,11 @@ int main()
 	Screen screen;
 
 	screen.screenEdge();
-	screen.screenClear();
-	screen.centerText("SCCS", 3);
-
-	box* testBox = screen.box(70, 40, 30, 3, 1);
-	screen.boxText(testBox, "Press any button to start", 1);
+	
+	textBox* title = new textBox(30, 20, "게임 제목", 1);
+	keyboardHit();
+	screen.horizontalLine(30);
+	delete title;
 
 	return 0;
 }
