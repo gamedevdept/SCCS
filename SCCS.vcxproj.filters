@@ -15,19 +15,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="keyboard.h">
       <Filter>헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="keyboard.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="objects.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="asciiArt.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="cursor.cpp">
@@ -36,13 +27,16 @@
     <ClCompile Include="cursor.h">
       <Filter>헤더 파일</Filter>
     </ClCompile>
-    <ClCompile Include="newMain.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="screen.h">
       <Filter>헤더 파일</Filter>
     </ClCompile>
     <ClCompile Include="screen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="textbox.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

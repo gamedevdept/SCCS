@@ -1,47 +1,20 @@
-#pragma once
 #include <iostream>
-#include <string>
-#include "cursor.h"
-#include "screen.h"
 
-using namespace std;
-
+#ifndef TEXTBOX_H
+#define TEXTBOX_H
 
 class textBox
 {
 private:
-	int x;
-	int y;
-	int length;
-	string message;
+	int startX;
+	int startY;
+	int endX;
+	int endY;
 
 public:
-	textBox(int x, int y, string message, int center = 0)
-	{
-		Screen scr;
-
-		textBox::x = x;
-		textBox::y = y;
-		textBox::length = message.length();
-		textBox::message = message;
-		if (center == 1)
-		{
-			textBox::x = (scr.getWidth() / 2) - (textBox::length / 2);
-		}
-		gotoXY(textBox::x, textBox::y);
-		cout << message;
-		gotoDefault();
-
-	}
-
-	~textBox()
-	{
-
-		gotoXY(x, y);
-		for (int i = 1; i <= message.length(); i++)
-		{
-			cout << " ";
-		}
-		gotoDefault();
-	}
+	textBox(int x, int y, std::string message, int center, std::string path);
+	~textBox();
 };
+
+
+#endif

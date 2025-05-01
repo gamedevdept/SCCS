@@ -2,3 +2,4 @@
 #include "cursor.h"
 #include "screen.h"
 #include "keyboard.h"
+#include "textbox.h"
