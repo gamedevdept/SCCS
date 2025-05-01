@@ -142,11 +142,9 @@
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="cursor.h" />
     <ClCompile Include="newMain.cpp" />
-    <ClCompile Include="newScreen.h" />
+    <ClCompile Include="screen.cpp" />
+    <ClCompile Include="screen.h" />
     <ClCompile Include="objects.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="screen.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
   </ItemGroup>
@@ -156,9 +154,6 @@
     </ClInclude>
     <ClInclude Include="header.h" />
     <ClInclude Include="textbox.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClInclude>
-    <ClInclude Include="screen.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
   </ItemGroup>

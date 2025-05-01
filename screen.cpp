@@ -1,86 +1,78 @@
-#include <iostream>
-#include <Windows.h>
-#include <string>
-#include "screen.h"
-#include "cursor.h"
+#include "header.h"
 
-using namespace std;
+using std::cout;
+Cursor screenCursor;
 
-void Screen::screenClear()
+void Screen::drawEdge()
 {
-	int i, j;
-
-	for (i = 1; i < Screen::height; i++)
-	{
-		gotoXY(1, i);
-		for (j = 1; j < Screen::width; j++)
-		{
-			cout << " ";
-		}
-	}
-
-	gotoXY(1, Screen::height + 1);
-
-}
-
-void Screen::screenEdge()
-{
-	gotoXY(0, 0);
+	screenCursor.gotoXY(0, 0);
 	cout << "¦£";
-	for (int i = 1; i < Screen::width; i++)
+	for (int i = 1; i < width; i++)
 	{
 		cout << "¦¡";
 	}
 	cout << "¦¤";
 
-	for (int i = 1; i < Screen::height; i++)
+	for (int i = 1; i < height; i++)
 	{
-		gotoXY(0, i);
+		screenCursor.gotoXY(0, i);
 		cout << "¦¢";
-		gotoXY(Screen::width, i);
+		screenCursor.gotoXY(width, i);
 		cout << "¦¢";
 	}
 
-	gotoXY(0, Screen::height);
+	screenCursor.gotoXY(0, height);
 	cout << "¦¦";
 	for (int i = 1; i < Screen::width; i++)
 	{
 		cout << "¦¡";
 	}
 	cout << "¦¥";
-	gotoDefault();
+	screenCursor.defaultXY();
 }
 
-void Screen::centerText(string message, int y)
+void Screen::clear()
 {
-	int length = message.length();
-	gotoXY((Screen::width / 2) - length / 2, y);
-	cout << message;
-	gotoDefault();
-}
+	int i, j;
 
-int Screen::getHeight()
-{
-	return Screen::height;
-}
+	for (i = 1; i < height; i++)
+	{
+		screenCursor.gotoXY(1, i);
+		for (j = 1; j < width; j++)
+		{
+			cout << " ";
+		}
+	}
 
-int Screen::getWidth()
-{
-	return Screen::width;
+	screenCursor.gotoXY(1, height + 1);
 }
 
 void Screen::verticalLine(int x)
 {
-
+	int i;
+	screenCursor.gotoXY(x, 0);
+	cout << "¦¨";
+	for (i = 1; i < height; i++)
+	{
+		screenCursor.gotoXY(x, i);
+		cout << "¦¢";
+	}
+	screenCursor.gotoXY(x, height);
+	cout << "¦ª";
+	screenCursor.defaultXY();
 }
 
 void Screen::horizontalLine(int y)
 {
-	gotoXY(0, y);
+	screenCursor.gotoXY(0, y);
 	cout << "¦§";
 	for (int i = 1; i < width; i++)
 	{
 		cout << "¦¡";
 	}
 	cout << "¦©";
+	screenCursor.defaultXY();
 }
+
+
+
