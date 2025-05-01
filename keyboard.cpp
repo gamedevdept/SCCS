@@ -1,8 +1,9 @@
 #include <conio.h>
-#include "keyboard.h"
+
+#include "header.h"
 
 
-int keyboardHit()
+int Keyboard::keyboardHit()
 {
 	while (true)
 	{

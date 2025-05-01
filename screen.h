@@ -1,3 +1,6 @@
+#ifndef SCREEN_H
+#define SCREEN_H
+
 class Screen
 {
 private:
@@ -10,3 +13,7 @@ public:
 	void verticalLine(int x);
 	void horizontalLine(int y);
 };
+
+#endif // !SCREEN_H
+
+

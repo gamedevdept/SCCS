@@ -1,4 +1,11 @@
-#pragma once
-#include <iostream>
+#ifndef KEYBOARD_H
+#define KEYBOARD_H
 
-int keyboardHit();
+class Keyboard
+{
+public:
+	int keyboardHit();
+};
+
+
+#endif // !KEYBOARD_H

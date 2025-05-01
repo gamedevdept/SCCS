@@ -4,6 +4,7 @@ using namespace std;
 
 Cursor cur;
 Screen scr;
+Keyboard kbd;
 
 int main()
 {
@@ -12,6 +13,7 @@ int main()
 	cur.defaultXY();
 	scr.drawEdge();
 	scr.verticalLine(3);
+	kbd.keyboardHit();
 	scr.horizontalLine(3);
 
 	return 0;
