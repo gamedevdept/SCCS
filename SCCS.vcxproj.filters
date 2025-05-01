@@ -21,9 +21,6 @@
     <ClCompile Include="screen.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="cursor.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="keyboard.h">
       <Filter>헤더 파일</Filter>
     </ClCompile>
@@ -33,30 +30,33 @@
     <ClCompile Include="objects.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="asciiArt.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="newMain.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="newScreen.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screen.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="cursor.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="player.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="city.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ending.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="architecture.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="textbox.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="asciiart.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="header.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

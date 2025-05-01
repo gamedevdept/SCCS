@@ -1,5 +1,7 @@
-#pragma once
-#include <Windows.h>
-
-void gotoXY(int x, int y);
-void gotoDefault();
+class Cursor
+{
+	
+public:
+	void gotoXY(int x, int y);
+	void defaultXY();
+};

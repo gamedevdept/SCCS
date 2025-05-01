@@ -1,21 +1,15 @@
 #include <Windows.h>
-#include "cursor.h"
-#include "screen.h"
+#include "header.h"
 
-using namespace std;
-
-Screen scr;
-
-void gotoXY(int x, int y)
+void Cursor::gotoXY(int x, int y)
 {
-	COORD Cur;
-	Cur.X = x;
-	Cur.Y = y;
-	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), Cur);
-
+	COORD cursor;
+	cursor.X = x;
+	cursor.Y = y;
+	SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursor);
 }
 
-void gotoDefault()
+void Cursor::defaultXY()
 {
-	gotoXY(1, scr.getHeight() + 1);
+	gotoXY(0, 47);
 }
