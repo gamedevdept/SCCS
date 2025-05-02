@@ -9,12 +9,10 @@ Keyboard kbd;
 int main()
 {
 	scr.drawEdge();
-	textBox* title = new textBox(30, 20, "SCCS", 1, "");
-	//Ascii* asciiTitle = new Ascii("SCCS.txt", 30, 20);
+	textBox* asciiTitle = new textBox(30, 20, "", 1, "SCCS.txt");
 	kbd.keyboardHit();
 	scr.horizontalLine(30);
-	delete title;
-	//delete asciiTitle;
+	delete asciiTitle;
 
 	return 0;
 }

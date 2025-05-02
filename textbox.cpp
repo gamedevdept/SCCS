@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 
 #include "header.h"
@@ -14,6 +15,7 @@ textBox::textBox(int x, int y, string message, int center, string path)
 
 	startX = x;
 	startY = y;
+	endY = startY;
 
 	if (message != "")
 	{
@@ -22,13 +24,33 @@ textBox::textBox(int x, int y, string message, int center, string path)
 			startX = 80 - (message.length() / 2);
 		}
 		endX = startX + message.length();
-		endY = startY;
 		textCursor.gotoXY(startX, startY);
 		cout << message;
 	}
 	else
 	{
+		ifstream ascii;
+		ascii.open(path);
 
+		string line;
+
+		getline(ascii, line);
+		if (center == 1)
+		{
+			startX = 80 - (line.length() / 2);
+		}
+		textCursor.gotoXY(startX, startY);
+		cout << line;
+		endX = startX;
+		while (getline(ascii, line))
+		{
+			if (line.length() > endX - startX)
+			{
+				endX = startX + line.length();
+			}
+			textCursor.gotoXY(startX, ++endY);
+			cout << line;
+		}
 	}
 	textCursor.defaultXY();
 }

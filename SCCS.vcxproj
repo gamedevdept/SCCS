@@ -141,9 +141,6 @@
     <ClCompile Include="textbox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="asciiArt.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="header.h" />
     <ClInclude Include="textbox.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
