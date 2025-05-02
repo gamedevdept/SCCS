@@ -147,7 +147,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="cpp.txt" />
     <Text Include="SCCS.txt" />
+    <Text Include="story.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

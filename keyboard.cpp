@@ -9,6 +9,7 @@ int Keyboard::keyboardHit()
 	{
 		if (_kbhit())
 		{
+			_getch();
 			return 0;
 		}
 	}

@@ -52,5 +52,11 @@
     <Text Include="SCCS.txt">
       <Filter>리소스 파일</Filter>
     </Text>
+    <Text Include="cpp.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="story.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>

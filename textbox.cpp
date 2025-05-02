@@ -25,32 +25,31 @@ textBox::textBox(int x, int y, string message, int center, string path)
 		}
 		endX = startX + message.length();
 		textCursor.gotoXY(startX, startY);
-		cout << message;
+		std::cout << message;
 	}
-	else
+	else //아스키아트, 스토리
 	{
 		ifstream ascii;
-		ascii.open(path);
+		ascii.open(path); // 파일 오픈 
 
-		string line;
+		string line; // 한 줄씩 넣는 변수
 
-		getline(ascii, line);
-		if (center == 1)
+		getline(ascii, line); // 한 줄 불러오기
+		if (center == 1) // 가운데 정렬 할 시
 		{
-			startX = 80 - (line.length() / 2);
+			startX = 80 - (line.length() / 2); // 가운데 - length / 2를 startX로 설정
 		}
-		textCursor.gotoXY(startX, startY);
-		cout << line;
 		endX = startX;
-		while (getline(ascii, line))
+		
+		do
 		{
 			if (line.length() > endX - startX)
 			{
 				endX = startX + line.length();
 			}
-			textCursor.gotoXY(startX, ++endY);
-			cout << line;
-		}
+			textCursor.gotoXY(startX, endY++);
+			std::cout << line;
+		} while (getline(ascii, line)); // 한 줄 불러오기
 	}
 	textCursor.defaultXY();
 }
@@ -64,7 +63,7 @@ textBox::~textBox()
 		textCursor.gotoXY(startX, i);
 		for (j = startX; j <= endX; j++)
 		{
-			cout << " ";
+			std::cout << " ";
 		}
 	}
 	textCursor.defaultXY();
