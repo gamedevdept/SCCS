@@ -5,8 +5,19 @@ using namespace std;
 Cursor cur;
 Screen scr;
 Keyboard kbd;
+City city;
 
-int main()
+void gameScreen()
+{
+
+}
+
+void endDay()
+{
+	
+}
+
+int main(void)
 {
 	scr.drawEdge();
 	textBox* asciiTitle = new textBox(30, 10, "", 1, "cpp.txt");
