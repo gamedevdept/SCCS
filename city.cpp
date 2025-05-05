@@ -112,6 +112,11 @@ void City::statusBar()
 	cityCursor.defaultXY();
 }
 
+void City::skipDate()
+{
+	date++;
+}
+
 
 City::~City()
 {

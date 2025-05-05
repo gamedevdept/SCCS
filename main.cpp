@@ -13,14 +13,31 @@ void gameScreen()
 	city.statusBar();
 	textBox* menuOne = new textBox(30, 25, "1. 알바하기", 0, "");
 	textBox* menuTwo = new textBox(30, 26, "2. 건물 구매", 0, "");
-	kbd.keyboardHit();
-	delete menuOne;
-	delete menuTwo;
+
+	while (int input = kbd.kbd())
+	{
+		if (input == 'a')
+		{
+			delete menuOne;
+			delete menuTwo;
+			return;
+		}
+		else
+		{
+			cur.gotoXY(3, 10);
+			cout << input;
+		}
+	}	
 }
 
 void endDay()
 {
 	
+}
+
+void game()
+{
+
 }
 
 int main(void)
@@ -34,6 +51,7 @@ int main(void)
 	delete startKey;
 	textBox* story = new textBox(1, 31, "", 0, "story.txt");
 	kbd.keyboardHit();
+	scr.drawEdge();
 	delete story;
 	scr.clear();
 	gameScreen();

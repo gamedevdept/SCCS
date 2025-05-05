@@ -14,3 +14,27 @@ int Keyboard::keyboardHit()
 		}
 	}
 }
+
+int Keyboard::kbd()
+{
+	int input = _getch();
+	if (input == 224)
+	{
+		switch (input = _getch())
+		{
+		case 72:
+			return 772;
+			break;
+		case 75:
+			return 775;
+			break;
+		case 77:
+			return 777;
+			break;
+		case 80:
+			return 800;
+			break;
+		}
+	}
+	return input;
+}

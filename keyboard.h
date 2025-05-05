@@ -5,6 +5,7 @@ class Keyboard
 {
 public:
 	int keyboardHit();
+	int kbd();
 };
 
 
