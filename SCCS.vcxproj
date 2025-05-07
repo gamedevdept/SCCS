@@ -137,6 +137,7 @@
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="cursor.h" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="minigame.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="screen.h" />
     <ClCompile Include="textbox.cpp" />
@@ -144,6 +145,7 @@
   <ItemGroup>
     <ClInclude Include="city.h" />
     <ClInclude Include="header.h" />
+    <ClInclude Include="minigame.h" />
     <ClInclude Include="textbox.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>

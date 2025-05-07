@@ -6,3 +6,4 @@
 #include "textbox.h"
 #include "city.h"
 #include "menu.h"
+#include "minigame.h"

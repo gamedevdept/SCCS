@@ -6,6 +6,7 @@ Cursor cur;
 Screen scr;
 Keyboard kbd;
 City city;
+Minigame minigame;
 
 void gameScreen()
 {
@@ -16,16 +17,13 @@ void gameScreen()
 
 	while (int input = kbd.kbd())
 	{
-		if (input == 'a')
+		if (input == '1')
 		{
 			delete menuOne;
 			delete menuTwo;
+			scr.clear();
+			minigame.rockScissorPaper();
 			return;
-		}
-		else
-		{
-			cur.gotoXY(3, 10);
-			cout << input;
 		}
 	}	
 }
