@@ -1,4 +1,14 @@
-#include "header.h"
+#include <iostream>
+
+#include "cursor.h"
+#include "screen.h"
+#include "keyboard.h"
+#include "city.h"
+#include "minigame.h"
+#include "textbox.h"
+#include "menu.h"
+
+
 
 using namespace std;
 
@@ -8,29 +18,37 @@ Keyboard kbd;
 City city;
 Minigame minigame;
 
+void minigameMain()
+{
+
+}
+
+void shopMain()
+{
+
+}
+
 void gameScreen()
 {
 	city.drawMap();
 	city.statusBar();
-	textBox* menuOne = new textBox(30, 25, "1. 알바하기", 0, "");
-	textBox* menuTwo = new textBox(30, 26, "2. 건물 구매", 0, "");
-
-	while (int input = kbd.kbd())
+	string gameList[2] = {"가위바위보", "아무 것도 아님"};
+	Menu* menuOne = new Menu(1, 10, 2, gameList);
+	int menuSelect = menuOne->select();
+	delete menuOne;
+	if (menuSelect == 0)
 	{
-		if (input == '1')
-		{
-			delete menuOne;
-			delete menuTwo;
-			scr.clear();
-			minigame.rockScissorPaper();
-			return;
-		}
-	}	
+		minigame.rockScissorPaper();
+	}
+	else
+	{
+		return;
+	}
 }
 
 void endDay()
 {
-	
+	city.skipDate();
 }
 
 void game()
@@ -53,6 +71,12 @@ int main(void)
 	delete story;
 	scr.clear();
 	gameScreen();
+	for (;;)
+	{
+		endDay();
+		gameScreen();
+	}
+
 
 
 	return 0;

@@ -1,5 +1,5 @@
 #include <Windows.h>
-#include "header.h"
+#include "cursor.h"
 
 void Cursor::gotoXY(int x, int y)
 {

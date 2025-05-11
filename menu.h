@@ -1,21 +1,24 @@
 #include <iostream>
 #include <string>
 
+using namespace std;
+
 #ifndef MENU_H
 #define MENU_H
 
-typedef struct select
-{
-	std::string message;
-	int(*fp);
-} Select;
-
 class Menu
 {
-
+private:
+	int max = 0;
+	int startX;
+	int startY;
+	int length;
+	int current = 0;
 
 public:
-	Menu();
+	Menu(int x, int y, int len, string userMenu[]);
+	void refresh();
+	int select();
 	~Menu();
 };
 

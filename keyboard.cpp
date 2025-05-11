@@ -1,6 +1,6 @@
 #include <conio.h>
 
-#include "header.h"
+#include "keyboard.h"
 
 
 int Keyboard::keyboardHit()
@@ -23,16 +23,16 @@ int Keyboard::kbd()
 		switch (input = _getch())
 		{
 		case 72:
-			return 772;
+			return 772; //up
 			break;
 		case 75:
-			return 775;
+			return 775; //left
 			break;
 		case 77:
-			return 777;
+			return 777; //right
 			break;
 		case 80:
-			return 800;
+			return 800; //down
 			break;
 		}
 	}

@@ -1,4 +1,7 @@
-#include "header.h"
+#include <iostream>
+
+#include "screen.h"
+#include "cursor.h"
 
 using std::cout;
 Cursor screenCursor;

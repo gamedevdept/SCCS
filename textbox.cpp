@@ -2,7 +2,9 @@
 #include <fstream>
 #include <string>
 
-#include "header.h"
+#include "textbox.h"
+#include "cursor.h"
+#include "screen.h"
 
 using namespace std;
 

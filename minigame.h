@@ -5,9 +5,5 @@ class Minigame
 {
 public:
 	void rockScissorPaper();
-
 };
-
-
-
 #endif // !MINIGAME_H

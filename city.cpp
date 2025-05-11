@@ -1,4 +1,7 @@
-#include "header.h"
+#include <iostream>
+#include "cursor.h"
+#include "city.h"
+
 #define WIDTH 20
 #define HEIGHT 5
 
@@ -8,7 +11,7 @@ Cursor cityCursor;
 
 City::City()
 {
-	int i, j;
+	int i;
 	vector<Structure> mapLine;
 	Structure a;
 	for (i = 0; i < mapSize; i++)
@@ -112,9 +115,14 @@ void City::statusBar()
 	cityCursor.defaultXY();
 }
 
-void City::skipDate()
+int City::skipDate()
 {
 	date++;
+	if (date == 52)
+	{
+		return 1;
+	}
+	return 0;
 }
 
 

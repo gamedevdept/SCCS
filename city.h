@@ -26,7 +26,7 @@ public:
 	City();
 	void drawMap();
 	void statusBar();
-	void skipDate();
+	int skipDate();
 	~City();
 };
 
