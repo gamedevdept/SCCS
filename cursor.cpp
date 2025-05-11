@@ -1,6 +1,8 @@
 #include <Windows.h>
 #include "cursor.h"
 
+Cursor cur;
+
 void Cursor::gotoXY(int x, int y)
 {
 	COORD cursor;

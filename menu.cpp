@@ -5,7 +5,6 @@
 using namespace std;
 
 Cursor menuCursor;
-Keyboard menuKeyboard;
 
 Menu::Menu(int x, int y, int len, string userMenu[])
 {
@@ -13,13 +12,13 @@ Menu::Menu(int x, int y, int len, string userMenu[])
 	startX = x;
 	startY = y;
 
-	for (int i = startY; i < startY + length; i++)
+	for (int i = 0; i < length; i++)
 	{
-		menuCursor.gotoXY(startX + 2, i);
-		cout << userMenu[startY - i];
-		if (max < userMenu[startY - i].length())
+		menuCursor.gotoXY(startX + 2, startY + i);
+		cout << userMenu[i];
+		if (max < userMenu[i].length())
 		{
-			max = userMenu[startY - i].length();
+			max = userMenu[i].length();
 		}
 	}
 }
@@ -34,21 +33,27 @@ void Menu::refresh()
 		{
 			cout << "¢º";
 		}
+		else
+		{
+			cout << " ";
+		}
 	}
+	cur.defaultXY();
 }
 
 int Menu::select()
 {
 	int input;
+	refresh();
 
-	while (input = menuKeyboard.kbd())
+	while (input = kbd.kbd())
 	{
-		if (input == 780 && current < length)
+		if (input == 800 && current < length)
 		{
 			current++;
 			refresh();
 		}
-		if (input == 72 && current != 0)
+		if (input == 772 && current != 0)
 		{
 			current--;
 			refresh();
@@ -66,7 +71,7 @@ Menu::~Menu()
 	for (i = 0; i < length; i++)
 	{
 		menuCursor.gotoXY(startX, startY + i);
-		for (int j = 0; i < max; i++)
+		for (int i = 0; i < max + 2; i++)
 		{
 			cout << " ";
 		}

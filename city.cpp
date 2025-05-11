@@ -7,8 +7,6 @@
 
 using namespace std;
 
-Cursor cityCursor;
-
 City::City()
 {
 	int i;
@@ -32,7 +30,7 @@ void City::drawMap()
 	int startX = 80 - ((width + 2) / 2);
 	int startY = 5;
 
-	cityCursor.gotoXY(startX, startY);
+	cur.gotoXY(startX, startY);
 	cout << "┌";
 	for (int i = 0; i < width; i++)
 	{
@@ -42,13 +40,13 @@ void City::drawMap()
 
 	for (int i = startY + 1; i <= startY + height; i++)
 	{
-		cityCursor.gotoXY(startX, i);
+		cur.gotoXY(startX, i);
 		cout << "│";
-		cityCursor.gotoXY(startX + width + 1, i);
+		cur.gotoXY(startX + width + 1, i);
 		cout << "│";
 	}
 
-	cityCursor.gotoXY(startX, startY + height + 1);
+	cur.gotoXY(startX, startY + height + 1);
 	cout << "└";
 	for (int i = 0; i < width; i++)
 	{
@@ -60,7 +58,7 @@ void City::drawMap()
 
 	for (i = HEIGHT + 1; i <= height; i += HEIGHT + 1)
 	{
-		cityCursor.gotoXY(startX, startY + i);
+		cur.gotoXY(startX, startY + i);
 		cout << "├";
 		for (j = 1; j <= width; j++)
 		{
@@ -71,11 +69,11 @@ void City::drawMap()
 
 	for (i = WIDTH + 1; i <= width; i += WIDTH + 1)
 	{
-		cityCursor.gotoXY(startX + i, startY);
+		cur.gotoXY(startX + i, startY);
 		cout << "┬";
 		for (j = startY + 1; j <= startY + height; j++)
 		{
-			cityCursor.gotoXY(startX + i, j);
+			cur.gotoXY(startX + i, j);
 			if ((j - startY) % (HEIGHT + 1) == 0)
 			{
 				cout << "┼";
@@ -84,10 +82,10 @@ void City::drawMap()
 
 			cout << "│";
 		}
-		cityCursor.gotoXY(startX + i, startY + height + 1);
+		cur.gotoXY(startX + i, startY + height + 1);
 		cout << "┴";
 	}
-	cityCursor.defaultXY();
+	cur.defaultXY();
 
 
 
@@ -102,7 +100,7 @@ void City::drawMap()
 
 void City::statusBar()
 {
-	cityCursor.gotoXY(25, 1);
+	cur.gotoXY(25, 1);
 	cout << "재산 | " << money;
 	cout << "               ";
 	cout << "명성 | " << rep;
@@ -112,7 +110,7 @@ void City::statusBar()
 	cout << "행복도 | " << happy;
 	cout << "               ";
 	cout << "(" << date << "/52) 턴";
-	cityCursor.defaultXY();
+	cur.defaultXY();
 }
 
 int City::skipDate()

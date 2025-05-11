@@ -12,9 +12,7 @@
 
 using namespace std;
 
-Cursor cur;
 Screen scr;
-Keyboard kbd;
 City city;
 Minigame minigame;
 
@@ -32,12 +30,13 @@ void gameScreen()
 {
 	city.drawMap();
 	city.statusBar();
-	string gameList[2] = {"가위바위보", "아무 것도 아님"};
-	Menu* menuOne = new Menu(1, 10, 2, gameList);
+	string gameList[2] = {"아르바이트 하기", "건물 구매하기"};
+	Menu* menuOne = new Menu(20, 30, 2, gameList);
 	int menuSelect = menuOne->select();
 	delete menuOne;
 	if (menuSelect == 0)
 	{
+		scr.clear();
 		minigame.rockScissorPaper();
 	}
 	else
@@ -52,6 +51,11 @@ void endDay()
 }
 
 void game()
+{
+
+}
+
+void shop()
 {
 
 }

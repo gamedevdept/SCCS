@@ -8,5 +8,6 @@ public:
 	int kbd();
 };
 
+extern Keyboard kbd;
 
 #endif // !KEYBOARD_H

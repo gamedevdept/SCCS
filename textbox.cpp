@@ -8,7 +8,7 @@
 
 using namespace std;
 
-Cursor textCursor;
+
 Screen textScreen;
 
 textBox::textBox(int x, int y, string message, int center, string path)
@@ -26,7 +26,7 @@ textBox::textBox(int x, int y, string message, int center, string path)
 			startX = 80 - (message.length() / 2);
 		}
 		endX = startX + message.length();
-		textCursor.gotoXY(startX, startY);
+		cur.gotoXY(startX, startY);
 		std::cout << message;
 	}
 	else //아스키아트, 스토리
@@ -49,11 +49,11 @@ textBox::textBox(int x, int y, string message, int center, string path)
 			{
 				endX = startX + line.length();
 			}
-			textCursor.gotoXY(startX, endY++);
+			cur.gotoXY(startX, endY++);
 			std::cout << line;
 		} while (getline(ascii, line)); // 한 줄 불러오기
 	}
-	textCursor.defaultXY();
+	cur.defaultXY();
 }
 
 textBox::~textBox()
@@ -62,11 +62,11 @@ textBox::~textBox()
 
 	for (i = startY; i <= endY; i++)
 	{
-		textCursor.gotoXY(startX, i);
+		cur.gotoXY(startX, i);
 		for (j = startX; j <= endX; j++)
 		{
 			std::cout << " ";
 		}
 	}
-	textCursor.defaultXY();
+	cur.defaultXY();
 }

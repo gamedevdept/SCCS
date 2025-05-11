@@ -2,6 +2,7 @@
 
 #include "keyboard.h"
 
+Keyboard kbd;
 
 int Keyboard::keyboardHit()
 {

@@ -145,7 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="city.h" />
-    <ClInclude Include="header.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="minigame.h" />
     <ClInclude Include="textbox.h">

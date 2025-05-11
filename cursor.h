@@ -10,6 +10,8 @@ public:
 	void defaultXY();
 };
 
+extern Cursor cur;
+
 #endif // !CURSOR_H
 
 
