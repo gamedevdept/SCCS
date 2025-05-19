@@ -10,7 +10,7 @@ int Keyboard::keyboardHit()
 	{
 		if (_kbhit())
 		{
-			_getch();
+			int a = _getch();
 			return 0;
 		}
 	}

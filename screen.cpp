@@ -5,6 +5,8 @@
 
 using std::cout;
 
+Screen scr;
+
 void Screen::drawEdge()
 {
 	cur.gotoXY(0, 0);

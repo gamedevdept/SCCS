@@ -14,6 +14,8 @@ public:
 	void horizontalLine(int y);
 };
 
+extern Screen scr;
+
 #endif // !SCREEN_H
 
 

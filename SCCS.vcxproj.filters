@@ -48,6 +48,15 @@
     <ClCompile Include="menu.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="shop.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="coord.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="textbox.h">
@@ -62,6 +71,9 @@
     <ClInclude Include="menu.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="structure.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="SCCS.txt">
@@ -71,6 +83,15 @@
       <Filter>리소스 파일</Filter>
     </Text>
     <Text Include="story.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="happyending.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="normalending.txt">
+      <Filter>리소스 파일</Filter>
+    </Text>
+    <Text Include="badending.txt">
       <Filter>리소스 파일</Filter>
     </Text>
   </ItemGroup>

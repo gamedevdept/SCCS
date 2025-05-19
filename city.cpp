@@ -1,11 +1,15 @@
 #include <iostream>
 #include "cursor.h"
 #include "city.h"
+#include "structure.h"
+#include "textbox.h"
 
 #define WIDTH 20
 #define HEIGHT 5
 
 using namespace std;
+
+City city;
 
 City::City()
 {
@@ -123,8 +127,41 @@ int City::skipDate()
 	return 0;
 }
 
-
-City::~City()
+void City::purchase()
 {
 
+}
+
+vector<vector<int>> City::vacant()
+{
+	int i, j;
+	vector<vector<int>> x = 
+	{
+		{},
+		{},
+		{},
+		{},
+		{},
+		{}
+	};
+
+	for (i = 0; i < mapSize; i++)
+	{
+		for (j = 0; j < mapSize; j++)
+		{
+			if (map[i][j].path == "")
+			{
+				x[i].push_back(j);
+			}
+		}
+	}
+
+	return x;
+}
+
+void City::ending()
+{
+	string fileName[3] = { "badending.txt", "normalending.txt", "happyending.txt" };
+
+	textBox* story = new textBox(1, 31, "", 0, fileName[happy / 40]);
 }

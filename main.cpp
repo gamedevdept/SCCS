@@ -1,20 +1,16 @@
 #include <iostream>
 
-#include "cursor.h"
 #include "screen.h"
-#include "keyboard.h"
-#include "city.h"
 #include "minigame.h"
-#include "textbox.h"
 #include "menu.h"
+#include "shop.h"
+#include "city.h"
+#include "textbox.h"
+#include "keyboard.h"
 
 
 
 using namespace std;
-
-Screen scr;
-City city;
-Minigame minigame;
 
 void minigameMain()
 {
@@ -28,20 +24,25 @@ void shopMain()
 
 void gameScreen()
 {
-	city.drawMap();
-	city.statusBar();
-	string gameList[2] = {"아르바이트 하기", "건물 구매하기"};
-	Menu* menuOne = new Menu(20, 30, 2, gameList);
-	int menuSelect = menuOne->select();
-	delete menuOne;
-	if (menuSelect == 0)
+	int complete = 1;
+	while (complete == 1)
 	{
-		scr.clear();
-		minigame.rockScissorPaper();
-	}
-	else
-	{
-		return;
+		city.drawMap();
+		city.statusBar();
+		string gameList[2] = { "아르바이트 하기", "건물 구매하기" };
+		Menu* menuOne = new Menu(20, 30, 2, gameList);
+		int menuSelect = menuOne->select();
+		delete menuOne;
+		if (menuSelect == 0)
+		{
+			scr.clear();
+			complete = minigame.gameMain();
+		}
+		else
+		{
+			scr.clear();
+			sho.shopMain();
+		}
 	}
 }
 
@@ -55,7 +56,7 @@ void game()
 
 }
 
-void shop()
+void ending()
 {
 
 }
@@ -75,11 +76,14 @@ int main(void)
 	delete story;
 	scr.clear();
 	gameScreen();
-	for (;;)
+	for (int i = 1;i <= 52; i++)
 	{
 		endDay();
 		gameScreen();
 	}
+	scr.clear();
+	scr.verticalLine(30);
+	ending();
 
 
 

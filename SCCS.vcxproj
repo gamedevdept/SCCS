@@ -128,6 +128,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="city.cpp" />
+    <ClCompile Include="coord.h" />
     <ClCompile Include="keyboard.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -141,18 +142,24 @@
     <ClCompile Include="minigame.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="screen.h" />
+    <ClCompile Include="shop.cpp" />
+    <ClCompile Include="shop.h" />
     <ClCompile Include="textbox.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="city.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="minigame.h" />
+    <ClInclude Include="structure.h" />
     <ClInclude Include="textbox.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <Text Include="badending.txt" />
     <Text Include="cpp.txt" />
+    <Text Include="happyending.txt" />
+    <Text Include="normalending.txt" />
     <Text Include="SCCS.txt" />
     <Text Include="story.txt" />
   </ItemGroup>
