@@ -1,0 +1,7 @@
+departmentascii.txt
+0
+5000
+100
+700
+0
+0

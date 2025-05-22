@@ -1,11 +1,14 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+
 #include "cursor.h"
 #include "city.h"
 #include "structure.h"
 #include "textbox.h"
 
 #define WIDTH 20
-#define HEIGHT 5
+#define HEIGHT 6
 
 using namespace std;
 
@@ -14,18 +17,10 @@ City city;
 City::City()
 {
 	int i;
-	vector<Structure> mapLine;
 	Structure a;
-	for (i = 0; i < mapSize; i++)
-	{
-		mapLine.push_back(a);
-	}
-	for (i = 0; i < mapSize; i++)
-	{
-		map.push_back(mapLine);
-	}
+	vector<vector<Structure>> tempMap(mapSize, vector<Structure>(mapSize, a));
+	this->map = tempMap;
 }
-
 void City::drawMap()
 {
 
@@ -91,13 +86,27 @@ void City::drawMap()
 	}
 	cur.defaultXY();
 
+	fstream ascii;
+	string line;
 
-
-	for (i = 0; i < mapSize; i++)
+	for (int y = 0; y < mapSize; y++)
 	{
-		for (j = 0; j < mapSize; j++)
+		for (int x = 0; x < mapSize; x++)
 		{
-
+			ascii.open(map[y][x].path);
+			if (!ascii)
+			{
+				cur.gotoXY(startX + 1 + (WIDTH + 1) * x, startY + 1 + (HEIGHT + 1) * y);
+				cout << "파일 없음!";
+				continue;
+			}
+			for (int k = 0; k < 5; k++)
+			{
+				getline(ascii, line);
+				cur.gotoXY(startX + 1 + (WIDTH + 1) * x, startY + 1 + (HEIGHT + 1) * y + k);
+				cout << line;
+			}
+			ascii.close();
 		}
 	}
 }
@@ -127,36 +136,46 @@ int City::skipDate()
 	return 0;
 }
 
-void City::purchase()
+void City::purchase(string path, int x, int y)
 {
+	ifstream data(path);
 
+	string line;
+
+	getline(data, line);
+	map[y][x].path = line;
+	getline(data, line);
+	map[y][x].upgrade = stoi(line);
+	getline(data, line);
+	map[y][x].expense = stoi(line);
+	getline(data, line);
+	map[y][x].happyPerDay = stoi(line);
+	getline(data, line);
+	map[y][x].repPerDay = stoi(line);
+	getline(data, line);
+	map[y][x].popPerDay = stoi(line);
+	getline(data, line);
+	map[y][x].moneyPerDay = stoi(line);
+	data.close();
 }
 
-vector<vector<int>> City::vacant()
+void City::vacant()
 {
-	int i, j;
-	vector<vector<int>> x = 
-	{
-		{},
-		{},
-		{},
-		{},
-		{},
-		{}
-	};
+	int x, y;
+	vector<vector<int>> mapLine(mapSize, vector<int>(0));
 
-	for (i = 0; i < mapSize; i++)
+	for (y = 0; y < mapSize; y++)
 	{
-		for (j = 0; j < mapSize; j++)
+		for (x = 0; x < mapSize; x++)
 		{
-			if (map[i][j].path == "")
+			if (map[y][x].path == "")
 			{
-				x[i].push_back(j);
+				mapLine[y].push_back(x);
 			}
 		}
 	}
 
-	return x;
+	vacantMap = mapLine;
 }
 
 void City::ending()

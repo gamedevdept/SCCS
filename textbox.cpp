@@ -13,7 +13,6 @@ Screen textScreen;
 
 textBox::textBox(int x, int y, string message, int center, string path)
 {
-	Screen scr;
 
 	startX = x;
 	startY = y;
@@ -52,6 +51,7 @@ textBox::textBox(int x, int y, string message, int center, string path)
 			cur.gotoXY(startX, endY++);
 			std::cout << line;
 		} while (getline(ascii, line)); // 한 줄 불러오기
+		ascii.close();
 	}
 	cur.defaultXY();
 }

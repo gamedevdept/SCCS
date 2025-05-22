@@ -23,7 +23,7 @@
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{8f8a4710-7864-4c06-b7b4-a9856f2dfcbe}</ProjectGuid>
     <RootNamespace>SCCS</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.18362.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="city.cpp" />
+    <ClCompile Include="coord.cpp" />
     <ClCompile Include="coord.h" />
+    <Text Include="departmentascii.txt" />
     <ClCompile Include="keyboard.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -158,6 +160,7 @@
   <ItemGroup>
     <Text Include="badending.txt" />
     <Text Include="cpp.txt" />
+    <Text Include="department.txt" />
     <Text Include="happyending.txt" />
     <Text Include="normalending.txt" />
     <Text Include="SCCS.txt" />

@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+
 #include "structure.h"
 
 using namespace std;
@@ -15,8 +16,8 @@ public:
 	void drawMap();
 	void statusBar();
 	int skipDate();
-	void purchase();
-	vector<vector<int>> vacant();
+	void purchase(string path, int x, int y);
+	void vacant();
 	void ending();
 	int pop = 0; // 인구
 	int money = 0; // 돈
@@ -25,6 +26,7 @@ public:
 	int date = 1; // 날짜
 	int mapSize = 3; // 지도 크기
 	std::vector<vector<Structure>> map;
+	std::vector<vector<int>> vacantMap;
 };
 
 extern City city;

@@ -2,6 +2,7 @@
 #include "textbox.h"
 #include "menu.h"
 #include "city.h"
+#include "coord.h"
 
 Shop sho;
 
@@ -9,7 +10,7 @@ void Shop::constructure()
 {
 	textBox* title = new textBox(1, 10, "건물 건설", 1, "");
 	string men[6] = { "백화점", "동물원", "온천", "워터파크", "놀이공원", "돌아가기"};
-	string fileName[6] = { "department", "zoo", "spring", "waterpark", "amuzement", "back" };
+	string fileName[6] = { "department.txt", "zoo.txt", "spring.txt", "waterpark.txt", "amuzement.txt", "back" };
 	Menu* select = new Menu(1, 20, 6, men);
 	int sel = select->select();
 	delete select;
@@ -17,6 +18,10 @@ void Shop::constructure()
 	if (sel == 5)
 	{
 		return;
+	}
+	else
+	{
+		construct(fileName[sel]);
 	}
 
 }
@@ -31,12 +36,19 @@ void Shop::shopMain()
 	delete title;
 	if (sel == 0)
 	{
+		constructure();
+	}
+	else if (sel == 2)
+	{
 		return;
 	}
 }
 
 void Shop::construct(string name)
 {
-	textBox* title = new textBox(1, 10, "건설 위치 선택", 1, "");
+	textBox* title = new textBox(1, 3, "건설 위치 선택", 1, "");
 	city.drawMap();
+	city.vacant();
+	int* coordinate = coord(city.vacantMap);
+	city.purchase(name, coordinate[1], coordinate[0]);
 }
