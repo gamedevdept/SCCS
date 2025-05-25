@@ -3,6 +3,7 @@
 #include "menu.h"
 #include "city.h"
 #include "coord.h"
+#include "screen.h"
 
 Shop sho;
 
@@ -26,6 +27,11 @@ void Shop::constructure()
 
 }
 
+void Shop::transport()
+{
+
+}
+
 void Shop::shopMain()
 {
 	textBox* title = new textBox(1, 10, "건설 선택창", 1, "");
@@ -38,6 +44,10 @@ void Shop::shopMain()
 	{
 		constructure();
 	}
+	else if (sel == 1)
+	{
+		transport();
+	}
 	else if (sel == 2)
 	{
 		return;
@@ -49,6 +59,12 @@ void Shop::construct(string name)
 	textBox* title = new textBox(1, 3, "건설 위치 선택", 1, "");
 	city.drawMap();
 	city.vacant();
-	int* coordinate = coord(city.vacantMap);
-	city.purchase(name, coordinate[1], coordinate[0]);
+	int* coo = coord(city.vacantMap);
+	if (coo[0] != -1)
+	{
+		city.purchase(name, coo[0], coo[1]); // x, y
+	}
+	delete coo;
+	delete title;
+	scr.clear();
 }

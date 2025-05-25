@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cham3.cpp" />
     <ClCompile Include="city.cpp" />
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="coord.h" />
@@ -149,6 +150,7 @@
     <ClCompile Include="textbox.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cham3.h" />
     <ClInclude Include="city.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="minigame.h" />

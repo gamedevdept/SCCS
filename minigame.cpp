@@ -7,22 +7,29 @@
 #include "textbox.h"
 #include "menu.h"
 #include "city.h"
+#include "cham3.h"
 
 using namespace std;
 
 Minigame minigame;
 
+
 int Minigame::gameMain()
 {
 	textBox* title = new textBox(1, 5, "아르바이트 구인공고", 1, "");
-	string select[2] = { "가위바위보", "돌아가기"};
-	Menu* men = new Menu(10, 20, 2, select);
+	string select[3] = { "가위바위보", "참참참", "돌아가기"};
+	Menu* men = new Menu(10, 20, 3, select);
 	int gamePlay = men->select();
 	delete men;
 	delete title;
 	if (gamePlay == 0)
 	{
 		rockScissorPaper();
+		return 0;
+	}
+	else if (gamePlay == 1)
+	{
+		gameplay();
 		return 0;
 	}
 	else

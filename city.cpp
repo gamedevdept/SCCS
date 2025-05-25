@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <conio.h>
 
 #include "cursor.h"
 #include "city.h"
@@ -139,7 +140,6 @@ int City::skipDate()
 void City::purchase(string path, int x, int y)
 {
 	ifstream data(path);
-
 	string line;
 
 	getline(data, line);
