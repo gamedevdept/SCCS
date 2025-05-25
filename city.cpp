@@ -161,7 +161,7 @@ void City::purchase(string path, int x, int y)
 		getline(data, line);
 		map[y][x].upgradepath = line;
 	}
-	data.close();
+	data.close();  
 }
 
 void City::vacant()
