@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="cham3.cpp" />
     <ClCompile Include="city.cpp" />
+    <ClCompile Include="cleaningAlba.cpp" />
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="coord.h" />
     <Text Include="airport.txt" />
@@ -163,6 +164,7 @@
     <ClInclude Include="city.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="minigame.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="structure.h" />
     <ClInclude Include="textbox.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
@@ -177,6 +179,9 @@
     <Text Include="normalending.txt" />
     <Text Include="SCCS.txt" />
     <Text Include="story.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="SCCS.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
