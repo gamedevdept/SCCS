@@ -1,0 +1,7 @@
+terminalascii.txt
+0
+15000
+350
+2000
+0
+0

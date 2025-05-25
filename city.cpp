@@ -156,6 +156,11 @@ void City::purchase(string path, int x, int y)
 	map[y][x].popPerDay = stoi(line);
 	getline(data, line);
 	map[y][x].moneyPerDay = stoi(line);
+	if (map[y][x].upgrade == 1)
+	{
+		getline(data, line);
+		map[y][x].upgradepath = line;
+	}
 	data.close();
 }
 

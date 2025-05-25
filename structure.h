@@ -14,6 +14,7 @@ typedef struct mystruct
 	int repPerDay = 0;
 	int popPerDay = 0;
 	int moneyPerDay = 0;
+	string upgradepath = "";
 
 }Structure;
 

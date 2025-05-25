@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="리소스 파일\아스키아트 파일">
+      <UniqueIdentifier>{cb4e4936-2e41-4cad-adee-fd4a31bb1123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\건물 데이터 파일">
+      <UniqueIdentifier>{b8bb5d91-eee0-41fd-bd95-b7c87d32635c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\스토리 파일">
+      <UniqueIdentifier>{0c422bb3-5a8f-4be8-8838-8bedf98ad9a0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="keyboard.h">
@@ -85,29 +94,59 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="SCCS.txt">
-      <Filter>리소스 파일</Filter>
+    <Text Include="badending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
     </Text>
     <Text Include="cpp.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="story.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="happyending.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="normalending.txt">
-      <Filter>리소스 파일</Filter>
-    </Text>
-    <Text Include="badending.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\아스키아트 파일</Filter>
     </Text>
     <Text Include="department.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
     </Text>
     <Text Include="departmentascii.txt">
-      <Filter>리소스 파일</Filter>
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="happyending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="normalending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="story.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="SCCS.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="bus.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="example.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="terminal.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="airport.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="subway.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="train.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="zoo.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="waterpark.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="spring.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="amusement.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
     </Text>
   </ItemGroup>
 </Project>

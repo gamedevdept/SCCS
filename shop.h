@@ -11,6 +11,7 @@ public:
 	void constructure();
 	void transport();
 	void construct(std::string name);
+	void upgrade();
 };
 
 extern Shop sho;
