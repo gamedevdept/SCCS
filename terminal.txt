@@ -1,3 +1,4 @@
+버스터미널
 terminalascii.txt
 0
 15000

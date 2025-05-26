@@ -1,0 +1,9 @@
+초등학교
+elemetaryascii.txt
+1
+300
+30
+30
+0
+0
+middle.txt

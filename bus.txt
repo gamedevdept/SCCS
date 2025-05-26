@@ -1,3 +1,4 @@
+버스정류장
 busascii.txt
 0
 5000

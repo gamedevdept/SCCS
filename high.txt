@@ -1,0 +1,9 @@
+고등학교
+highascii.txt
+1
+2700
+120
+270
+0
+0
+univ.txt

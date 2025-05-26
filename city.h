@@ -19,6 +19,7 @@ public:
 	void purchase(string path, int x, int y);
 	void vacant();
 	void ending();
+	std::vector<UpgradeList>* upgrade();
 	int pop = 0; // 인구
 	int money = 0; // 돈
 	int happy = 0; // 행복도

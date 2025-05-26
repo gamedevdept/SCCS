@@ -127,15 +127,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="alba.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="cham3.cpp" />
     <ClCompile Include="city.cpp" />
-    <ClCompile Include="cleaningAlba.cpp" />
+    <ClCompile Include="cleaningAlba.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="coord.cpp" />
     <ClCompile Include="coord.h" />
     <Text Include="airport.txt" />
     <Text Include="amusement.txt" />
     <Text Include="bus.txt" />
     <Text Include="departmentascii.txt" />
+    <Text Include="elementaryascii.txt" />
     <ClCompile Include="keyboard.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
     </ClCompile>
@@ -146,16 +154,23 @@
     <ClCompile Include="cursor.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <Text Include="middle.txt" />
     <ClCompile Include="minigame.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="screen.h" />
     <ClCompile Include="shop.cpp" />
     <ClCompile Include="shop.h" />
     <ClCompile Include="textbox.cpp" />
+    <Text Include="elementary.txt" />
+    <Text Include="high.txt" />
+    <Text Include="highascii.txt" />
+    <Text Include="middleascii.txt" />
     <Text Include="spring.txt" />
     <Text Include="subway.txt" />
     <Text Include="terminal.txt" />
     <Text Include="train.txt" />
+    <Text Include="univ.txt" />
+    <Text Include="univascii.txt" />
     <Text Include="waterpark.txt" />
     <Text Include="zoo.txt" />
   </ItemGroup>
@@ -179,9 +194,6 @@
     <Text Include="normalending.txt" />
     <Text Include="SCCS.txt" />
     <Text Include="story.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="SCCS.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

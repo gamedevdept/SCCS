@@ -48,7 +48,21 @@ void Shop::transport()
 
 void Shop::upgrade()
 {
+	textBox* title = new textBox(1, 10, "업그레이드", 1, "");
+	vector<UpgradeList> a = *city.upgrade();
+	vector<string> men;
 
+	for (auto& i : a)
+	{
+		men.push_back(i.name);
+	}
+	int n = men.size();
+	string* arr = new string[n]{};
+	copy(men.begin(), men.end(), arr);
+	Menu* select = new Menu(1, 20, men.size(), arr);
+	int sel = select->select();
+	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
+	
 }
 
 void Shop::shopMain()

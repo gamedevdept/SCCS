@@ -1,0 +1,9 @@
+ÁßÇÐ±³
+middleascii.txt
+1
+900
+60
+90
+0
+0
+high.txt

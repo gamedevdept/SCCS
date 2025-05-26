@@ -7,6 +7,7 @@ using namespace std;
 
 typedef struct mystruct
 {
+	string name = "";
 	string path = "";
 	bool upgrade = false;
 	int expense = 0;
@@ -17,5 +18,12 @@ typedef struct mystruct
 	string upgradepath = "";
 
 }Structure;
+
+typedef struct structureUpgrade
+{
+	int y = 0;
+	int x = 0;
+	string name = "";
+} UpgradeList;
 
 #endif // !STRUCTURE_H

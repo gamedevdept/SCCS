@@ -72,6 +72,12 @@
     <ClCompile Include="cham3.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="cleaningAlba.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="alba.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="textbox.h">
@@ -90,6 +96,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="cham3.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -147,6 +156,30 @@
     </Text>
     <Text Include="amusement.txt">
       <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="elementary.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="elementaryascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="high.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="highascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="middle.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="middleascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="univ.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="univascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
     </Text>
   </ItemGroup>
 </Project>

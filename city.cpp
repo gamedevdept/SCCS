@@ -17,7 +17,6 @@ City city;
 
 City::City()
 {
-	int i;
 	Structure a;
 	vector<vector<Structure>> tempMap(mapSize, vector<Structure>(mapSize, a));
 	this->map = tempMap;
@@ -143,6 +142,8 @@ void City::purchase(string path, int x, int y)
 	string line;
 
 	getline(data, line);
+	map[y][x].name = line;
+	getline(data, line);
 	map[y][x].path = line;
 	getline(data, line);
 	map[y][x].upgrade = stoi(line);
@@ -181,6 +182,26 @@ void City::vacant()
 	}
 
 	vacantMap = mapLine;
+}
+
+vector<UpgradeList>* City::upgrade()
+{
+	vector<UpgradeList> upgradelist;
+	UpgradeList a;
+	for (int y = 0; y < mapSize; y++)
+	{
+		for (int x = 0; x < mapSize; x++)
+		{
+			if (map[y][x].upgrade == 1)
+			{
+				a.y = y;
+				a.x = x;
+				a.name = map[y][x].name;
+				upgradelist.push_back(a);
+			}
+		}
+	}
+	return &upgradelist;
 }
 
 void City::ending()
