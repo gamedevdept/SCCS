@@ -1,326 +1,326 @@
-﻿﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<ItemGroup>
-		<Filter Include="소스 파일">
-			<UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-			<Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-		</Filter>
-		<Filter Include="헤더 파일">
-			<UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-			<Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-		</Filter>
-		<Filter Include="리소스 파일">
-			<UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-			<Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-		</Filter>
-		<Filter Include="리소스 파일\아스키아트 파일">
-			<UniqueIdentifier>{cb4e4936-2e41-4cad-adee-fd4a31bb1123}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="리소스 파일\건물 데이터 파일">
-			<UniqueIdentifier>{b8bb5d91-eee0-41fd-bd95-b7c87d32635c}</UniqueIdentifier>
-		</Filter>
-		<Filter Include="리소스 파일\스토리 파일">
-			<UniqueIdentifier>{0c422bb3-5a8f-4be8-8838-8bedf98ad9a0}</UniqueIdentifier>
-		</Filter>
-	</ItemGroup>
-	<ItemGroup>
-		<ClCompile Include="keyboard.h">
-			<Filter>헤더 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="keyboard.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="cursor.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="cursor.h">
-			<Filter>헤더 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="main.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="screen.h">
-			<Filter>헤더 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="screen.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="textbox.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="city.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="minigame.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="menu.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="shop.h">
-			<Filter>헤더 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="shop.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="coord.h">
-			<Filter>헤더 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="coord.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="cham3.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="cleaningAlba.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-		<ClCompile Include="alba.cpp">
-			<Filter>소스 파일</Filter>
-		</ClCompile>
-	</ItemGroup>
-	<ItemGroup>
-		<ClInclude Include="textbox.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="city.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="minigame.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="menu.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="structure.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="cham3.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-		<ClInclude Include="resource.h">
-			<Filter>헤더 파일</Filter>
-		</ClInclude>
-	</ItemGroup>
-	<ItemGroup>
-		<Text Include="badending.txt">
-			<Filter>리소스 파일\스토리 파일</Filter>
-		</Text>
-		<Text Include="cpp.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="department.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="happyending.txt">
-			<Filter>리소스 파일\스토리 파일</Filter>
-		</Text>
-		<Text Include="normalending.txt">
-			<Filter>리소스 파일\스토리 파일</Filter>
-		</Text>
-		<Text Include="story.txt">
-			<Filter>리소스 파일\스토리 파일</Filter>
-		</Text>
-		<Text Include="SCCS.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="bus.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="example.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="terminal.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="airport.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="subway.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="train.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="zoo.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="spring.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="amusement.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="elementary.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="elementaryascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="high.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="highascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="middle.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="middleascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="univ.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="univascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="busascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="departmentascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="smallfirm.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="minifirm.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="middlefirm.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="apartment.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="house.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="penthouse.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="villa.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="swimming.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="stadium.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="baseball.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="golf.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="univhospital.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="bighospital.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="doctor.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="hospital.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="policeagency.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="policebox.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="policeoffice.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="policestation.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="zooascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="terminalascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="airportascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="amusementascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="middlefirmascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="minifirmascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="smallfirmascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="springascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="subwayascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="trainascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="bigfirm.txt">
-			<Filter>리소스 파일\건물 데이터 파일</Filter>
-		</Text>
-		<Text Include="bigfirmascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="penthouseascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="apartmentascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="houseascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="villaascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="baseballascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="golfascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="stadiumascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="swimmingascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="bighospitalascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="doctorascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="hospitalascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="univhospitalascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="policeagencyascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="policeboxascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="policeofficeascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-		<Text Include="policestationascii.txt">
-			<Filter>리소스 파일\아스키아트 파일</Filter>
-		</Text>
-	</ItemGroup>
+  <ItemGroup>
+    <Filter Include="소스 파일">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="헤더 파일">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="리소스 파일\아스키아트 파일">
+      <UniqueIdentifier>{cb4e4936-2e41-4cad-adee-fd4a31bb1123}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\건물 데이터 파일">
+      <UniqueIdentifier>{b8bb5d91-eee0-41fd-bd95-b7c87d32635c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="리소스 파일\스토리 파일">
+      <UniqueIdentifier>{0c422bb3-5a8f-4be8-8838-8bedf98ad9a0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="keyboard.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="keyboard.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cursor.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="screen.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="textbox.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="city.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="minigame.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="shop.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="shop.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="coord.h">
+      <Filter>헤더 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="coord.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cham3.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="cleaningAlba.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="alba.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="textbox.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="city.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="minigame.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="structure.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="cham3.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="badending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="cpp.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="department.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="happyending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="normalending.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="story.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
+    <Text Include="SCCS.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="bus.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="example.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="terminal.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="airport.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="subway.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="train.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="zoo.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="spring.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="amusement.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="elementary.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="elementaryascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="high.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="highascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="middle.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="middleascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="univ.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="univascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="busascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="departmentascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="smallfirm.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="minifirm.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="middlefirm.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="apartment.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="house.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="penthouse.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="villa.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="swimming.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="stadium.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="baseball.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="golf.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="univhospital.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="bighospital.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="doctor.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="hospital.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="policeagency.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="policebox.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="policeoffice.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="policestation.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="zooascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="terminalascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="airportascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="amusementascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="middlefirmascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="minifirmascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="smallfirmascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="springascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="subwayascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="trainascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="bigfirm.txt">
+      <Filter>리소스 파일\건물 데이터 파일</Filter>
+    </Text>
+    <Text Include="bigfirmascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="penthouseascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="apartmentascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="houseascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="villaascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="baseballascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="golfascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="stadiumascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="swimmingascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="bighospitalascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="doctorascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="hospitalascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="univhospitalascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="policeagencyascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="policeboxascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="policeofficeascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+    <Text Include="policestationascii.txt">
+      <Filter>리소스 파일\아스키아트 파일</Filter>
+    </Text>
+  </ItemGroup>
 </Project>

@@ -3,13 +3,8 @@
 #include "keyboard.h"
 
 using namespace std;
-template<typename arr>
 
-<<<<<<< HEAD
 Menu::Menu(int x, int y, int len, string userMenu[])
-=======
-Menu::Menu(int x, int y, int len, arr userMenu)
->>>>>>> d087d923a4571020792bffd52b8cc0bfc5f39ac8
 {
 	length = len;
 	startX = x;

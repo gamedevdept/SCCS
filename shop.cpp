@@ -51,7 +51,6 @@ void Shop::upgrade()
 	textBox* title = new textBox(1, 10, "업그레이드", 1, "");
 	vector<UpgradeList> a = *city.upgrade();
 	vector<string> men;
-<<<<<<< HEAD
 
 	for (auto& i : a)
 	{
@@ -63,17 +62,7 @@ void Shop::upgrade()
 	Menu* select = new Menu(1, 20, men.size(), arr);
 	int sel = select->select();
 	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
-=======
->>>>>>> d087d923a4571020792bffd52b8cc0bfc5f39ac8
 
-	for (auto& i : a)
-	{
-		men.push_back(i.name);
-	}
-	Menu* select = new Menu(1, 20, men.len(), men);
-	int sel = select->select();
-	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
-	
 }
 
 void Shop::shopMain()
