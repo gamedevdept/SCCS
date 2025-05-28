@@ -1,0 +1,8 @@
+상급종합병원
+bighospitalascii.txt
+0
+50000
+1350
+4700
+0
+0

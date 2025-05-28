@@ -1,0 +1,9 @@
+¼ö¿µÀå
+swimmingascii.txt
+1
+500
+50
+70
+0
+0
+stadium.txt

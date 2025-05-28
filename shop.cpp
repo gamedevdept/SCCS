@@ -10,8 +10,8 @@ Shop sho;
 void Shop::constructure()
 {
 	textBox* title = new textBox(1, 10, "건물 건설", 1, "");
-	string men[6] = { "백화점 (5000G)", "동물원(15000G)", "온천(30000G)", "워터파크(50000G)", "놀이공원(100000G)", "돌아가기"};
-	string fileName[5] = { "department.txt", "zoo.txt", "spring.txt", "waterpark.txt", "amuzement.txt" };
+	string men[6] = { "백화점 (5000G)", "동물원(15000G)", "온천(30000G)", "놀이공원(100000G)", "초등학교(300G)", "돌아가기"};
+	string fileName[5] = { "department.txt", "zoo.txt", "spring.txt", "amuzement.txt", "elementary.txt"};
 	Menu* select = new Menu(1, 20, 6, men);
 	int sel = select->select();
 	delete select;
@@ -51,6 +51,7 @@ void Shop::upgrade()
 	textBox* title = new textBox(1, 10, "업그레이드", 1, "");
 	vector<UpgradeList> a = *city.upgrade();
 	vector<string> men;
+<<<<<<< HEAD
 
 	for (auto& i : a)
 	{
@@ -60,6 +61,16 @@ void Shop::upgrade()
 	string* arr = new string[n]{};
 	copy(men.begin(), men.end(), arr);
 	Menu* select = new Menu(1, 20, men.size(), arr);
+	int sel = select->select();
+	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
+=======
+>>>>>>> d087d923a4571020792bffd52b8cc0bfc5f39ac8
+
+	for (auto& i : a)
+	{
+		men.push_back(i.name);
+	}
+	Menu* select = new Menu(1, 20, men.len(), men);
 	int sel = select->select();
 	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
 	

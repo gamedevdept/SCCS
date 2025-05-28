@@ -3,10 +3,13 @@
 #include "keyboard.h"
 
 using namespace std;
+template<typename arr>
 
-Cursor menuCursor;
-
+<<<<<<< HEAD
 Menu::Menu(int x, int y, int len, string userMenu[])
+=======
+Menu::Menu(int x, int y, int len, arr userMenu)
+>>>>>>> d087d923a4571020792bffd52b8cc0bfc5f39ac8
 {
 	length = len;
 	startX = x;
@@ -14,7 +17,7 @@ Menu::Menu(int x, int y, int len, string userMenu[])
 
 	for (int i = 0; i < length; i++)
 	{
-		menuCursor.gotoXY(startX + 2, startY + i);
+		cur.gotoXY(startX + 2, startY + i);
 		cout << userMenu[i];
 		if (max < userMenu[i].length())
 		{
@@ -28,7 +31,7 @@ void Menu::refresh()
 	int i;
 	for (i = 0; i < length; i++)
 	{
-		menuCursor.gotoXY(startX, startY + i);
+		cur.gotoXY(startX, startY + i);
 		if (i == current)
 		{
 			cout << "¢º";
@@ -70,7 +73,7 @@ Menu::~Menu()
 	int i;
 	for (i = 0; i < length; i++)
 	{
-		menuCursor.gotoXY(startX, startY + i);
+		cur.gotoXY(startX, startY + i);
 		for (int i = 0; i < max + 2; i++)
 		{
 			cout << " ";

@@ -1,0 +1,9 @@
+주택단지
+houseascii.txt
+1
+500
+0
+0
+500
+0
+villa.txt

@@ -1,0 +1,9 @@
+중소기업
+smallfirmascii.txt
+1
+400
+-120
+0
+0
+1000
+middlefirm.txt

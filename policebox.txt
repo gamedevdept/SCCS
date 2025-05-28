@@ -1,0 +1,9 @@
+ÆÄÃâ¼Ò
+policeboxascii.txt
+1
+100
+10
+20
+0
+0
+policestation.txt

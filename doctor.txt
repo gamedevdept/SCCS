@@ -1,0 +1,9 @@
+ÀÇ¿ø
+doctorascii.txt
+1
+400
+50
+50
+0
+0
+hospital.txt

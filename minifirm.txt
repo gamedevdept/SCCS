@@ -1,0 +1,9 @@
+1ÀÎ ±â¾÷
+minifirmascii.txt
+1
+200
+-20
+0
+0
+50
+smallfirm.txt

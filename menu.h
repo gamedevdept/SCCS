@@ -16,7 +16,8 @@ private:
 	int current = 0;
 
 public:
-	Menu(int x, int y, int len, string userMenu[]);
+	template<typename arr>
+	Menu(int x, int y, int len, arr userMenu);
 	void refresh();
 	int select();
 	~Menu();

@@ -1,0 +1,9 @@
+종합병원
+hospitalascii.txt
+1
+2000
+150
+200
+0
+0
+univhospital.txt

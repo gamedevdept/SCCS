@@ -1,0 +1,9 @@
+대학병원
+univhospitalascii.txt
+1
+10000
+450
+1200
+0
+0
+bighospital.txt
