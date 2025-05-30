@@ -32,7 +32,7 @@ Menu::Menu(int x, int y, int len, string userMenu[], int structure)
 	this->startY = y;
 	this->structure = structure;
 	int indexlen = 6;
-	string index[6] = { "이름", "가격", "턴당 행복도", "턴당 명성", "인구 증가치", "턴당 수익" };
+	string index[6] = { "이름", "가격", "턴당 행복도", "획득 명성", "인구 증가치", "턴당 수익" };
 
 	fstream data;
 	string line;

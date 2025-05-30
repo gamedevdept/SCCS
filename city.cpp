@@ -130,18 +130,16 @@ void City::statusBar()
 int City::skipDate()
 {
 	int level[5] = { 0, 5000, 10000, 15000, 30000 };
-	int moneyBonus[5] = { 0, 10, 20, 30, 40 };
-	int happyBonus[5] = { 0, 5, 10, 20, 30 };
-	int tempRep = city.rep;
+	double moneyBonus[5] = { 1, 1.1, 1.2, 1.3, 1.4 };
+	double happyBonus[5] = { 1, 1.05, 1.1, 1.2, 1.3 };
 	int tempHappy = city.happy;
 
 	for (int y = 0; y < mapSize; y++)
 	{
 		for (int x = 0; x < mapSize; x++)
 		{
-			happy += map[y][x].happyPerDay;
-			rep += map[y][x].repPerDay;
-			money += map[y][x].moneyPerDay;
+			happy += map[y][x].happyPerDay * happyBonus[this->level];
+			money += map[y][x].moneyPerDay * moneyBonus[this->level];
 		}
 	}
 	if (level[this->level + 1] <= this->rep && level[this->level + 1] <= this->pop)
@@ -175,6 +173,7 @@ int City::skipDate()
 	_getch();
 	tempMoney = city.money;
 	tempPop = city.pop;
+	tempRep = city.rep;
 
 	if (date == 52)
 	{
@@ -215,6 +214,7 @@ void City::purchase(string path, int x, int y)
 
 	city.money -= map[y][x].expense;
 	city.pop += map[y][x].popPerDay;
+	city.rep += map[y][x].repPerDay;
 }
 
 void City::vacant()

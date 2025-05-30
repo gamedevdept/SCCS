@@ -31,6 +31,7 @@ public:
 	int level = 0;
 	int tempMoney = 0;
 	int tempPop = 0;
+	int tempRep = 0;
 	std::vector<vector<Structure>> map;
 	std::vector<vector<int>> vacantMap;
 };
