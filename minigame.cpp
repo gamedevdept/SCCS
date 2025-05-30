@@ -54,7 +54,7 @@ void Minigame::rockScissorPaper()
 		textBox* about = new textBox(1, 6, "1 = 보 | 2 = 가위 | 3 = 주먹", 1, "");
 		srand((unsigned int)time(NULL));
 		int user = kbd.kbd() - '1';
-		if (user >= 3)
+		if (user >= 3 || user < 0)
 		{
 			textBox* error = new textBox(1, 10, "당신은 너무 긴장한 나머지 손가락을 세 개 펴고 말았다!", 1, "");
 			textBox* error2 = new textBox(1, 11, "상대 : 지금 날 놀리는 겐가? 똑바로 하란 말이야.", 1, "");
