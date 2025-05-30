@@ -86,7 +86,7 @@ void Shop::upgrade()
 		}
 		string* arr = new string[n]{};
 		copy(men.begin(), men.end(), arr);
-		Menu* select = new Menu(1, 20, men.size(), arr);
+		Menu* select = new Menu(1, 20, men.size(), arr, 1);
 		int sel = select->select();
 		if (sel == men.size() - 1)
 		{

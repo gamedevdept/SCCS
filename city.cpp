@@ -248,7 +248,7 @@ vector<UpgradeList> City::upgrade()
 			{
 				a.y = y;
 				a.x = x;
-				a.name = map[y][x].name;
+				a.name = map[y][x].upgradepath;
 				upgradelist.push_back(a);
 			}
 		}
