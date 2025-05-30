@@ -167,6 +167,7 @@
     <ClCompile Include="cursor.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
+    <Text Include="endingcredit.txt" />
     <Text Include="golf.txt" />
     <Text Include="golfascii.txt" />
     <Text Include="hospital.txt" />

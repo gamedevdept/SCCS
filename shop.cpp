@@ -40,20 +40,25 @@ void Shop::constructure()
 
 void Shop::transport()
 {
-	textBox* title = new textBox(1, 10, "교통수단 건설", 1, "");
-	string men[6] = { "bus.txt", "terminal.txt", "subway.txt", "train.txt", "airport.txt", "돌아가기"};
-	Menu* select = new Menu(1, 20, 6, men);
-	int sel = select->select();
-	delete select;
-	delete title;
-	if (sel == 5)
+	int selected = 0;
+	while (selected == 0)
 	{
-		return;
+		textBox* title = new textBox(1, 10, "교통수단 건설", 1, "");
+		string men[6] = { "bus.txt", "terminal.txt", "subway.txt", "train.txt", "airport.txt", "돌아가기" };
+		Menu* select = new Menu(1, 20, 6, men, 1);
+		int sel = select->select();
+		delete select;
+		delete title;
+		if (sel == 5)
+		{
+			return;
+		}
+		else
+		{
+			selected = construct(men[sel]);
+		}
 	}
-	else
-	{
-		construct(men[sel]);
-	}
+	
 }
 
 void Shop::upgrade()

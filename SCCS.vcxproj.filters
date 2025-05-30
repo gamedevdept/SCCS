@@ -325,5 +325,8 @@
     <Text Include="policestationascii.txt">
       <Filter>리소스 파일\아스키아트 파일</Filter>
     </Text>
+    <Text Include="endingcredit.txt">
+      <Filter>리소스 파일\스토리 파일</Filter>
+    </Text>
   </ItemGroup>
 </Project>
