@@ -1,5 +1,5 @@
 초등학교
-elemetaryascii.txt
+elementaryascii.txt
 1
 300
 30

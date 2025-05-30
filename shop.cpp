@@ -1,37 +1,47 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <conio.h>
+
 #include "shop.h"
 #include "textbox.h"
 #include "menu.h"
 #include "city.h"
 #include "coord.h"
 #include "screen.h"
+#include "keyboard.h"
+#include "cursor.h"
 
 Shop sho;
 
 void Shop::constructure()
 {
-	textBox* title = new textBox(1, 10, "건물 건설", 1, "");
-	string men[6] = { "백화점 (5000G)", "동물원(15000G)", "온천(30000G)", "놀이공원(100000G)", "초등학교(300G)", "돌아가기"};
-	string fileName[5] = { "department.txt", "zoo.txt", "spring.txt", "amuzement.txt", "elementary.txt"};
-	Menu* select = new Menu(1, 20, 6, men);
-	int sel = select->select();
-	delete select;
-	delete title;
-	if (sel == 5)
+	int selected = 0;
+	while (selected == 0)
 	{
-		return;
+		textBox* title = new textBox(1, 10, "건물 건설", 1, "");
+		string men[10] = { "department.txt", "zoo.txt", "spring.txt", "amusement.txt", "elementary.txt", "doctor.txt", "policebox.txt", "house.txt", "minifirm.txt", "돌아가기" };
+		Menu* select = new Menu(1, 20, 10, men, 1);
+		int sel = select->select();
+		delete select;
+		delete title;
+		if (sel == 9)
+		{
+			return;
+		}
+		else
+		{
+			selected = construct(men[sel]);
+		}
 	}
-	else
-	{
-		construct(fileName[sel]);
-	}
+	
 
 }
 
 void Shop::transport()
 {
 	textBox* title = new textBox(1, 10, "교통수단 건설", 1, "");
-	string men[6] = { "노선버스(5000G)", "버스터미널(15000G)", "도시철도(30000G)", "고속철도(50000G)", "공항(100000G)", "돌아가기"};
-	string fileName[5] = {"bus.txt", "terminal.txt", "subway.txt", "train.txt", "airport.txt"};
+	string men[6] = { "bus.txt", "terminal.txt", "subway.txt", "train.txt", "airport.txt", "돌아가기"};
 	Menu* select = new Menu(1, 20, 6, men);
 	int sel = select->select();
 	delete select;
@@ -42,14 +52,14 @@ void Shop::transport()
 	}
 	else
 	{
-		construct(fileName[sel]);
+		construct(men[sel]);
 	}
 }
 
 void Shop::upgrade()
 {
 	textBox* title = new textBox(1, 10, "업그레이드", 1, "");
-	vector<UpgradeList> a = *city.upgrade();
+	vector<UpgradeList> a = city.upgrade();
 	vector<string> men;
 
 	for (auto& i : a)
@@ -57,16 +67,24 @@ void Shop::upgrade()
 		men.push_back(i.name);
 	}
 	int n = men.size();
+	if (n == 0)
+	{
+		textBox* error = new textBox(1, 20, "업그레이드 할 건물이 없습니다!", 1, "");
+		kbd.keyboardHit();
+		return;
+	}
 	string* arr = new string[n]{};
 	copy(men.begin(), men.end(), arr);
 	Menu* select = new Menu(1, 20, men.size(), arr);
 	int sel = select->select();
 	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
-
+	delete title;
+	delete select;
 }
 
 void Shop::shopMain()
 {
+	city.statusBar();
 	textBox* title = new textBox(1, 10, "건설 선택창", 1, "");
 	string men[4] = { "건물 건설", "교통수단 건설", "건물 업그레이드", "돌아가기"};
 	Menu* select = new Menu(1, 20, 4, men);
@@ -91,8 +109,20 @@ void Shop::shopMain()
 	}
 }
 
-void Shop::construct(string name)
+int Shop::construct(string name)
 {
+	fstream data(name);
+	string line;
+	getline(data, line);
+	getline(data, line);
+	getline(data, line);
+	getline(data, line);
+	if (stoi(line) > city.money)
+	{
+		cur.gotoXY(1, 45);
+		cout << "돈이 부족합니다!";
+		return 0;
+	}
 	textBox* title = new textBox(1, 3, "건설 위치 선택", 1, "");
 	city.drawMap();
 	city.vacant();
@@ -104,4 +134,5 @@ void Shop::construct(string name)
 	delete coo;
 	delete title;
 	scr.clear();
+	return 1;
 }

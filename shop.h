@@ -10,7 +10,7 @@ public:
 	void shopMain();
 	void constructure();
 	void transport();
-	void construct(std::string name);
+	int construct(std::string name);
 	void upgrade();
 };
 

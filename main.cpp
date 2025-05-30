@@ -12,53 +12,41 @@
 
 using namespace std;
 
-void minigameMain()
-{
-
-}
-
-void shopMain()
-{
-
-}
-
 void gameScreen()
 {
-	int complete = 1;
-	while (complete == 1)
+	int end = 0;
+	while (end == 0)
 	{
-		city.drawMap();
-		city.statusBar();
-		string gameList[2] = { "아르바이트 하기", "건물 구매하기" };
-		Menu* menuOne = new Menu(20, 30, 2, gameList);
-		int menuSelect = menuOne->select();
-		delete menuOne;
-		if (menuSelect == 0)
+		int complete = 1;
+		while (complete == 1)
 		{
 			scr.clear();
-			complete = minigame.gameMain();
+			city.drawMap();
+			city.statusBar();
+			string gameList[3] = { "아르바이트 하기", "건물 구매하기", "턴 넘기기" };
+
+			Menu* menuOne = new Menu(city.startX, 7 + city.height, 3, gameList);
+			int menuSelect = menuOne->select();
+			delete menuOne;
+			if (menuSelect == 0)
+			{
+				scr.clear();
+				complete = minigame.gameMain();
+			}
+			else if (menuSelect == 1)
+			{
+				scr.clear();
+				sho.shopMain();
+			}
+			else if (menuSelect == 2)
+			{
+				complete = 0;
+				scr.clear();
+			}
 		}
-		else
-		{
-			scr.clear();
-			sho.shopMain();
-		}
+		end = city.skipDate();
 	}
-}
-
-void endDay()
-{
-	city.skipDate();
-}
-
-void game()
-{
-
-}
-
-void ending()
-{
-
+	
 }
 
 int main(void)
@@ -74,18 +62,8 @@ int main(void)
 	kbd.keyboardHit();
 	scr.drawEdge();
 	delete story;
-	scr.clear();
 	gameScreen();
-	for (int i = 1;i <= 52; i++)
-	{
-		endDay();
-		gameScreen();
-	}
 	scr.clear();
-	scr.verticalLine(30);
-	ending();
-
-
 
 	return 0;
 }

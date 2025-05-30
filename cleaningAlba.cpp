@@ -2,229 +2,220 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
-#define location 17 //ui ÁÂ¿ì·Î À§Ä¡Á¶Á¤¿ë -> ¸ÞÀÎ°ÔÀÓ¿¡¼­ ¾î¶»°Ô ÀÌ»Ú°Ô ¸ÂÃß³Ä...
+#include <conio.h>
 
+#include "screen.h"
+#include "cleaningAlba.h"
+#include "city.h"
+#define location 60 //ui ÁÂ¿ì·Î À§Ä¡Á¶Á¤¿ë -> ¸ÞÀÎ°ÔÀÓ¿¡¼­ ¾î¶»°Ô ÀÌ»Ú°Ô ¸ÂÃß³Ä...
 
 using namespace std;
 
-int sumMoney = 0;
-
-void clearScreen() {
-    cout << "\033[0;0H";
-    for (int i = 0; i < 20; i++) {
-        for (int j = 0; j < 30; j++) {
-            cout << " ";
-        }
-        cout << "\n";
-    }
-    cout << "\033[0;0H";
-}
+int Money = 0;
 
 void calMoney(int point) {
-    sumMoney += point * 100;
+    Money += point * 100;
 }
 
-class CleaningGame {
-private:
-    int size; // ÆÇ Å©±â
-    int obstacle; // Àå¾Ö¹° °³¼ö
-    vector<pair<int, int>> obstacles; // Àå¾Ö¹° À§Ä¡ -> º¤ÅÍ¿¡ {int first, int second} ÇüÅÂ·Î ÀúÀåµÇ³ªº½.
-    int trash; // ¾²·¹±â °³¼ö
-    vector<pair<int, int>> trashes; // ¾²·¹±â À§Ä¡
-    pair<int, int> playerPos; // ÇÃ·¹ÀÌ¾î À§Ä¡
-    int point;
 
-public:
-    CleaningGame(int s = 10, int o = 6, int t = 10, int p = 0) : size(s), obstacle(o), trash(t), point(p) {
-        srand(time(0));
-        playerPos = { size / 2, size / 2 };
+CleaningGame::CleaningGame() {
+    srand(time(0));
+    playerPos = { size / 2, size / 2 };
 
-        // Àå¾Ö¹° À§Ä¡ ·£´ý ÃÊ±âÈ­ (ÇÃ·¹ÀÌ¾î À§Ä¡¶û °ãÄ¡Áö ¾Ê°Ô)
-        for (int i = 0; i < obstacle; i++) {
-            int x, y;
-            do {
-                x = rand() % size;
-                y = rand() % size;
-            } while ((x == playerPos.first && y == playerPos.second) || contains(obstacles, x, y));
-            obstacles.push_back({ x, y });
+    // Àå¾Ö¹° À§Ä¡ ·£´ý ÃÊ±âÈ­ (ÇÃ·¹ÀÌ¾î À§Ä¡¶û °ãÄ¡Áö ¾Ê°Ô)
+    for (int i = 0; i < obstacle; i++) {
+        int x, y;
+        do {
+            x = rand() % size;
+            y = rand() % size;
+        } while ((x == playerPos.first && y == playerPos.second) || contains(obstacles, x, y));
+        obstacles.push_back({ x, y });
+    }
+
+    // ¾²·¹±â À§Ä¡ ·£´ý ÃÊ±âÈ­ (ÇÃ·¹ÀÌ¾î, Àå¾Ö¹° À§Ä¡¶û °ãÄ¡Áö ¾Ê°Ô)
+    for (int i = 0; i < trash; i++) {
+        int x, y;
+        do {
+            x = rand() % size;
+            y = rand() % size;
+        } while ((x == playerPos.first && y == playerPos.second) || contains(obstacles, x, y) || contains(trashes, x, y));
+        trashes.push_back({ x, y });
+    }
+}
+
+// »ý¼ºÇÒ¶§ °ãÄ¡´Â À§Ä¡ ÀÖ´ÂÁö È®ÀÎ¿ë
+bool CleaningGame::contains(const vector<pair<int, int>>& vec, int x, int y) {
+    for (const auto& p : vec) {
+        if (p.first == x && p.second == y)
+            return true;
+    }
+    return false;
+}
+
+void CleaningGame::drawBoard() {
+    // ÆÇ Å×µÎ¸® À­ÁÙ
+    cout << "\033[1;" << location << "H";
+    for (int i = 0; i < size + 2; i++) cout << "\033[30;47m ";
+    cout << "\033[0m\n";
+
+    for (int i = 0; i < size; i++) {
+        cout << "\033[" << 2 + i << ";" << location << "H";
+        cout << "\033[30;47m \033[0m"; // ÁÂ Å×µÎ¸®
+
+        for (int j = 0; j < size; j++) {
+            if (contains(obstacles, i, j)) cout << "\033[31mX\033[0m";           // Àå¾Ö¹°
+            else if (playerPos.first == i && playerPos.second == j) cout << "O"; // ÇÃ·¹ÀÌ¾î
+            else if (contains(trashes, i, j)) cout << "\033[33m*\033[0m";        // ¾²·¹±â
+            else cout << " ";                                                    // ºóÄ­
         }
 
-        // ¾²·¹±â À§Ä¡ ·£´ý ÃÊ±âÈ­ (ÇÃ·¹ÀÌ¾î, Àå¾Ö¹° À§Ä¡¶û °ãÄ¡Áö ¾Ê°Ô)
-        for (int i = 0; i < trash; i++) {
-            int x, y;
-            do {
-                x = rand() % size;
-                y = rand() % size;
-            } while ((x == playerPos.first && y == playerPos.second) || contains(obstacles, x, y) || contains(trashes, x, y));
-            trashes.push_back({ x, y });
+        cout << "\033[30;47m \033[0m\n"; // ¿ì Å×µÎ¸®
+    }
+
+    // ÆÇ Å×µÎ¸® ¾Æ·§ÁÙ
+    cout << "\033[" << size + 2 << ";" << location << "H";
+    for (int i = 0; i < size + 2; i++) cout << "\033[30;47m ";
+    cout << "\033[0m\n";
+}
+
+void CleaningGame::movePlayer(char direction) {
+    int newX = playerPos.first;
+    int newY = playerPos.second;
+
+    // ¹æÇâ¿¡ µû¶ó À§Ä¡ ÀÌµ¿
+    if (direction == 'w') newX--;
+    else if (direction == 's') newX++;
+    else if (direction == 'a') newY--;
+    else if (direction == 'd') newY++;
+
+    // ÆÇ ¹þ¾î³ª¸é ÀÌµ¿ ¾È ÇÔ
+    if (newX < 0 || newX >= size || newY < 0 || newY >= size)
+        return;
+
+
+    // ÀÌµ¿
+    playerPos.first = newX;
+    playerPos.second = newY;
+
+    // ¾²·¹±â ¸Ô±â ÆÇÁ¤
+    for (int i = 0; i < trashes.size(); i++) {
+        if (trashes[i].first == newX && trashes[i].second == newY) {
+            trashes.erase(trashes.begin() + i);
+            point++;
+            break;
         }
     }
 
-    // »ý¼ºÇÒ¶§ °ãÄ¡´Â À§Ä¡ ÀÖ´ÂÁö È®ÀÎ¿ë
-    bool contains(const vector<pair<int, int>>& vec, int x, int y) {
-        for (const auto& p : vec) {
-            if (p.first == x && p.second == y)
-                return true;
-        }
-        return false;
-    }
+}
 
-    void drawBoard() {
-        // ÆÇ Å×µÎ¸® À­ÁÙ
-        cout << "\033[1;" << location << "H";
-        for (int i = 0; i < size + 2; i++) cout << "\033[30;47m ";
-        cout << "\033[0m\n";
+void CleaningGame::moveObstacle() {
+    for (auto& obs : obstacles) {
 
-        for (int i = 0; i < size; i++) {
-            cout << "\033[" << 2 + i << ";" << location << "H";
-            cout << "\033[30;47m \033[0m"; // ÁÂ Å×µÎ¸®
+        int dir = rand() % 4;  // 0:À§, 1:¾Æ·¡, 2:ÁÂ, 3:¿ì
+        int newX = obs.first;
+        int newY = obs.second;
 
-            for (int j = 0; j < size; j++) {
-                if (contains(obstacles, i, j)) cout << "\033[31mX\033[0m";           // Àå¾Ö¹°
-                else if (playerPos.first == i && playerPos.second == j) cout << "O"; // ÇÃ·¹ÀÌ¾î
-                else if (contains(trashes, i, j)) cout << "\033[33m*\033[0m";        // ¾²·¹±â
-                else cout << " ";                                                    // ºóÄ­
-            }
+        if (dir == 0) newX--;
+        else if (dir == 1) newX++;
+        else if (dir == 2) newY--;
+        else if (dir == 3) newY++;
 
-            cout << "\033[30;47m \033[0m\n"; // ¿ì Å×µÎ¸®
-        }
-
-        // ÆÇ Å×µÎ¸® ¾Æ·§ÁÙ
-        cout << "\033[" << size + 2 << ";" << location << "H";
-        for (int i = 0; i < size + 2; i++) cout << "\033[30;47m ";
-        cout << "\033[0m\n";
-    }
-
-    void movePlayer(char direction) {
-        int newX = playerPos.first;
-        int newY = playerPos.second;
-
-        // ¹æÇâ¿¡ µû¶ó À§Ä¡ ÀÌµ¿
-        if (direction == 'w') newX--;
-        else if (direction == 's') newX++;
-        else if (direction == 'a') newY--;
-        else if (direction == 'd') newY++;
-
-        // ÆÇ ¹þ¾î³ª¸é ÀÌµ¿ ¾È ÇÔ
+        // ÀÌµ¿ °¡´É ¿©ºÎ È®ÀÎ
         if (newX < 0 || newX >= size || newY < 0 || newY >= size)
-            return;
-
+            continue;  // ¹üÀ§ ¹þ¾î³ª¸é ÀÌµ¿ X
+        if (contains(obstacles, newX, newY))
+            continue;  // ´Ù¸¥ Àå¾Ö¹° ÀÖÀ¸¸é ÀÌµ¿ X
 
         // ÀÌµ¿
-        playerPos.first = newX;
-        playerPos.second = newY;
-
-        // ¾²·¹±â ¸Ô±â ÆÇÁ¤
-        for (int i = 0; i < trashes.size(); i++) {
-            if (trashes[i].first == newX && trashes[i].second == newY) {
-                trashes.erase(trashes.begin() + i);
-                point++;
-                break;
-            }
-        }
-
+        obs.first = newX;
+        obs.second = newY;
     }
+}
 
-    void moveObstacle() {
-        for (auto& obs : obstacles) {
-
-            int dir = rand() % 4;  // 0:À§, 1:¾Æ·¡, 2:ÁÂ, 3:¿ì
-            int newX = obs.first;
-            int newY = obs.second;
-
-            if (dir == 0) newX--;
-            else if (dir == 1) newX++;
-            else if (dir == 2) newY--;
-            else if (dir == 3) newY++;
-
-            // ÀÌµ¿ °¡´É ¿©ºÎ È®ÀÎ
-            if (newX < 0 || newX >= size || newY < 0 || newY >= size)
-                continue;  // ¹üÀ§ ¹þ¾î³ª¸é ÀÌµ¿ X
-            if (contains(obstacles, newX, newY))
-                continue;  // ´Ù¸¥ Àå¾Ö¹° ÀÖÀ¸¸é ÀÌµ¿ X
-
-            // ÀÌµ¿
-            obs.first = newX;
-            obs.second = newY;
-        }
-    }
-
-    bool checkCollision() {
-        // Àå¾Ö¹° Ãæµ¹
-        for (auto& obs : obstacles) {
-            if (playerPos.first == obs.first && playerPos.second == obs.second) {
-                return true;
-            }
-        }
-        return false; //Ãæµ¹X
-    }
-
-    bool checkTrash() {
-        // ¸ðµç ¾²·¹±â ÁÖ¿ü´ÂÁö È®ÀÎ
-        if (trashes.empty()) {
+bool CleaningGame::checkCollision() {
+    // Àå¾Ö¹° Ãæµ¹
+    for (auto& obs : obstacles) {
+        if (playerPos.first == obs.first && playerPos.second == obs.second) {
             return true;
         }
-        return false; //¾²·¹±â ³²À½
     }
+    return false; //Ãæµ¹X
+}
 
-    void run() {
-        while (1) {
-            char dir;
-            clearScreen();
+bool CleaningGame::checkTrash() {
+    // ¸ðµç ¾²·¹±â ÁÖ¿ü´ÂÁö È®ÀÎ
+    if (trashes.empty()) {
+        return true;
+    }
+    return false; //¾²·¹±â ³²À½
+}
+
+void CleaningGame::run() {
+    while (1) {
+        char dir;
+        scr.clear();
+        drawBoard();
+        cout << "\033[13;45H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
+        cout << "\033[19;45H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
+        cout << "\033[15;45H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
+        cout << "\033[16;45H   ¹æÇâÀÔ·Â(wasd) : ";
+        cin >> dir;
+        movePlayer(dir);
+
+        bool collision = checkCollision();
+        if (collision) {
+            scr.clear();
             drawBoard();
-            cout << "\033[13;0H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
-            cout << "\033[19;0H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
-            cout << "\033[15;0H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
-            cout << "   ¹æÇâÀÔ·Â(wasd) : ";
-            cin >> dir;
-            movePlayer(dir);
+            calMoney(point);
+            cout << "\033[13;45H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
+            cout << "\033[19;45H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
+            cout << "\033[15;45H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
+            cout << "\033[16;45H   ´ç½ÅÀº Ã»¼Ò¸¦ ÇÏ´Ù°¡ »ç¶÷°ú ºÎµúÇû½À´Ï´Ù! \n";
+            cout << "\033[17;45H   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << Money << "\n";
+            cout << "\033[18;45H   ¾Æ¹« Å°³ª ´­·¯ °ÔÀÓ Á¾·á";
+            cout << "\033[20;0H";
+            city.money += Money;
+            break;
+        } //ÇÃ·¹ÀÌ¾î°¡ ¸ÕÀú ÀÌµ¿ÇÏ±â ¶§¹®¿¡ Ãæµ¹°Ë»ç ÇØÁÜ.
 
-            bool collision = checkCollision();
-            if (collision) {
-                clearScreen();
-                drawBoard();
-                calMoney(point);
-                cout << "\033[13;0H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
-                cout << "\033[19;0H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
-                cout << "\033[15;0H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
-                cout << "   ´ç½ÅÀº Ã»¼Ò¸¦ ÇÏ´Ù°¡ »ç¶÷°ú ºÎµúÇû½À´Ï´Ù! \n";
-                cout << "   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << sumMoney << "\n";
-                cout << "\033[20;0H";
-                break;
-            } //ÇÃ·¹ÀÌ¾î°¡ ¸ÕÀú ÀÌµ¿ÇÏ±â ¶§¹®¿¡ Ãæµ¹°Ë»ç ÇØÁÜ.
-
-            moveObstacle();
-            collision = checkCollision();
-            if (collision) {
-                clearScreen();
-                drawBoard();
-                calMoney(point);
-                cout << "\033[13;0H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
-                cout << "\033[19;0H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
-                cout << "\033[15;0H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
-                cout << "   ´ç½ÅÀº Ã»¼Ò¸¦ ÇÏ´Ù°¡ »ç¶÷°ú ºÎµúÇû½À´Ï´Ù! \n";
-                cout << "   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << sumMoney << "\n";
-                cout << "\033[20;0H";
-                break;
-            }
-            bool gameClear = checkTrash();
-            if (gameClear) {
-                clearScreen();
-                drawBoard();
-                calMoney(point);
-                cout << "\033[13;0H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
-                cout << "\033[19;0H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
-                cout << "\033[15;0H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
-                cout << "   ´ç½ÅÀº ¹«»çÈ÷ Ã»¼Ò¸¦ ¸¶ÃÆ½À´Ï´Ù! \n";
-                cout << "   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << sumMoney << "\n";
-                cout << "\033[20;0H";
-                break;
-            }
+        moveObstacle();
+        collision = checkCollision();
+        if (collision) {
+            scr.clear();
+            drawBoard();
+            calMoney(point);
+            cout << "\033[13;45H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
+            cout << "\033[19;45H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
+            cout << "\033[15;45H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
+            cout << "\033[16;45H   ´ç½ÅÀº Ã»¼Ò¸¦ ÇÏ´Ù°¡ »ç¶÷°ú ºÎµúÇû½À´Ï´Ù! \n";
+            cout << "\033[17;45H   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << Money << "\n";
+            cout << "\033[18;45H   ¾Æ¹« Å°³ª ´­·¯ °ÔÀÓ Á¾·á";
+            cout << "\033[20;0H";
+            city.money += Money;
+            break;
+        }
+        bool gameClear = checkTrash();
+        if (gameClear) {
+            scr.clear();
+            drawBoard();
+            calMoney(point);
+            cout << "\033[13;45H¦£¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¤\n";
+            cout << "\033[19;45H¦¦¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¡¦¥\n";
+            cout << "\033[15;45H   ÁÖ¿î ¾²·¹±â °³¼ö : " << point << "\n";
+            cout << "\033[16;45H   ´ç½ÅÀº ¹«»çÈ÷ Ã»¼Ò¸¦ ¸¶ÃÆ½À´Ï´Ù! \n";
+            cout << "\033[17;45H   ¹ÞÀº ¾Ë¹Ùºñ : " << point << " * 100 = " << Money << "\n";
+            cout << "\033[18;45H   ¾Æ¹« Å°³ª ´­·¯ °ÔÀÓ Á¾·á";
+            cout << "\033[20;0H";
+            city.money += Money;
+            break;
         }
     }
-};
+    _getch();
+    scr.clear();
+    scr.drawEdge();
+}
 
-int main() {
+int cleaningPlay() {
     CleaningGame temp;
     temp.run();
     return 0;

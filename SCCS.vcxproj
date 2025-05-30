@@ -134,7 +134,7 @@
     <ClCompile Include="cham3.cpp" />
     <ClCompile Include="city.cpp" />
     <ClCompile Include="cleaningAlba.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="coord.cpp" />
@@ -179,7 +179,9 @@
     <ClCompile Include="shop.cpp" />
     <ClCompile Include="shop.h" />
     <ClCompile Include="textbox.cpp" />
-    <Text Include="elementary.txt" />
+    <Text Include="elementary.txt">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </Text>
     <Text Include="high.txt" />
     <Text Include="highascii.txt" />
     <Text Include="middleascii.txt" />
@@ -223,6 +225,7 @@
   <ItemGroup>
     <ClInclude Include="cham3.h" />
     <ClInclude Include="city.h" />
+    <ClInclude Include="cleaningAlba.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="minigame.h" />
     <ClInclude Include="resource.h" />

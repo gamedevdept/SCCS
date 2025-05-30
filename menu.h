@@ -14,9 +14,11 @@ private:
 	int startY;
 	int length;
 	int current = 0;
+	int structure = 0;
 
 public:
 	Menu(int x, int y, int len, string userMenu[]);
+	Menu(int x, int y, int len, string userMenu[], int structure);
 	void refresh();
 	int select();
 	~Menu();
