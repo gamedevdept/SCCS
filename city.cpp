@@ -258,9 +258,21 @@ vector<UpgradeList> City::upgrade()
 
 void City::ending()
 {
+	scr.clear();
 	string fileName[3] = { "badending.txt", "normalending.txt", "happyending.txt" };
 
 	scr.horizontalLine(30);
-	textBox* story = new textBox(1, 31, "", 0, fileName[happy / 40]);
+	if (happy < 50)
+	{
+		textBox* story = new textBox(1, 31, "", 0, fileName[0]);
+	}
+	else if (happy < 500)
+	{
+		textBox* story = new textBox(1, 31, "", 0, fileName[1]);
+	}
+	else
+	{
+		textBox* story = new textBox(1, 31, "", 0, fileName[2]);
+	}
 	_getch();
 }

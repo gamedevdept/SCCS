@@ -58,28 +58,55 @@ void Shop::transport()
 
 void Shop::upgrade()
 {
-	textBox* title = new textBox(1, 10, "업그레이드", 1, "");
-	vector<UpgradeList> a = city.upgrade();
-	vector<string> men;
+	int selected = 0;
+	while (selected == 0)
+	{
+		textBox* title = new textBox(1, 10, "업그레이드", 1, "");
+		vector<UpgradeList> a = city.upgrade();
+		vector<string> men;
+		fstream data;
+		string line;
 
-	for (auto& i : a)
-	{
-		men.push_back(i.name);
+		for (auto& i : a)
+		{
+			men.push_back(i.name);
+		}
+		men.push_back("돌아가기");
+		int n = men.size();
+		if (n == 0)
+		{
+			textBox* error = new textBox(1, 20, "업그레이드 할 건물이 없습니다!", 1, "");
+			kbd.keyboardHit();
+			return;
+		}
+		string* arr = new string[n]{};
+		copy(men.begin(), men.end(), arr);
+		Menu* select = new Menu(1, 20, men.size(), arr);
+		int sel = select->select();
+		if (sel == men.size() - 1)
+		{
+			return;
+		}
+		else
+		{
+			data.open(city.map[a[sel].y][a[sel].x].upgradepath);
+			getline(data, line);
+			getline(data, line);
+			getline(data, line);
+			getline(data, line);
+			if (stoi(line) > city.money)
+			{
+				cur.gotoXY(1, 45);
+				cout << "돈이 부족합니다!";
+				continue;
+			}
+			city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
+			delete title;
+			delete select;
+			return;
+		}
+		
 	}
-	int n = men.size();
-	if (n == 0)
-	{
-		textBox* error = new textBox(1, 20, "업그레이드 할 건물이 없습니다!", 1, "");
-		kbd.keyboardHit();
-		return;
-	}
-	string* arr = new string[n]{};
-	copy(men.begin(), men.end(), arr);
-	Menu* select = new Menu(1, 20, men.size(), arr);
-	int sel = select->select();
-	city.purchase(city.map[a[sel].y][a[sel].x].upgradepath, a[sel].x, a[sel].y);
-	delete title;
-	delete select;
 }
 
 void Shop::shopMain()

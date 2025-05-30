@@ -212,7 +212,6 @@ void CleaningGame::run() {
     }
     _getch();
     scr.clear();
-    scr.drawEdge();
 }
 
 int cleaningPlay() {

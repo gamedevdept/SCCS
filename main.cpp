@@ -65,5 +65,8 @@ int main(void)
 	gameScreen();
 	scr.clear();
 
+	textBox* title = new textBox(1, 5, "The End", 1, "");
+	textBox* ending = new textBox(1, 15, "", 1, "endingcredit.txt");
+
 	return 0;
 }

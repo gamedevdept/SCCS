@@ -1,6 +1,6 @@
 중견기업
 middlefirmascii.txt
-0
+1
 1200
 -120
 0
