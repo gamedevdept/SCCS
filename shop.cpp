@@ -60,6 +60,13 @@ void Shop::transport()
 	}
 	
 }
+void Shop::mapUp()
+{
+	int cost[4] = { 0, 0, 50000, 150000};
+	textBox* title = new textBox(1, 10, "맵 확장", 1, "");
+
+	//textBox* title = new textBox(1, 10, "현재 맵은" + cost[city.mapSize] + "*" + cost[city.mapSize] + "사이즈입니다.", 1, "");
+}
 
 void Shop::upgrade()
 {
@@ -94,7 +101,7 @@ void Shop::upgrade()
 		}
 		else
 		{
-			data.open(city.map[a[sel].y][a[sel].x].upgradepath);
+			data.open(city.map[a[sel].y][a[sel].x]w.upgradepath);
 			getline(data, line);
 			getline(data, line);
 			getline(data, line);

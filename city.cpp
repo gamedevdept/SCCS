@@ -22,6 +22,22 @@ City::City()
 	vector<vector<Structure>> tempMap(mapSize, vector<Structure>(mapSize, a));
 	this->map = tempMap;
 }
+
+void City::mapUpgrade()
+{
+	Structure a;
+	for (int i = 0; i < mapSize; i++)
+	{
+		map[i].push_back(a);
+	}
+	mapSize++;
+	vector<Structure> tempLine;
+	for (int i = 0; i < mapSize; i++)
+	{
+		tempLine.push_back(a);
+	}
+	map.push_back(tempLine);
+}
 void City::drawMap()
 {
 
@@ -260,19 +276,23 @@ void City::ending()
 {
 	scr.clear();
 	string fileName[3] = { "badending.txt", "normalending.txt", "happyending.txt" };
+	string asciiName[3] = { "badendingascii.txt", "normalendingascii.txt", "happyendingascii.txt" };
 
 	scr.horizontalLine(30);
 	if (happy < 50)
 	{
 		textBox* story = new textBox(1, 31, "", 0, fileName[0]);
+		textBox* ascii = new textBox(1, 1, "", 0, asciiName[0]);
 	}
 	else if (happy < 500)
 	{
 		textBox* story = new textBox(1, 31, "", 0, fileName[1]);
+		textBox* ascii = new textBox(1, 1, "", 0, asciiName[1]);
 	}
 	else
 	{
 		textBox* story = new textBox(1, 31, "", 0, fileName[2]);
+		textBox* ascii = new textBox(1, 1, "", 0, asciiName[2]);
 	}
 	_getch();
 }

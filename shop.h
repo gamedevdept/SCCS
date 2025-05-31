@@ -12,6 +12,7 @@ public:
 	void transport();
 	int construct(std::string name);
 	void upgrade();
+	void mapUp();
 };
 
 extern Shop sho;

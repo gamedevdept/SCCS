@@ -145,6 +145,7 @@
     <Text Include="amusementascii.txt" />
     <Text Include="apartment.txt" />
     <Text Include="apartmentascii.txt" />
+    <Text Include="badendingascii.txt" />
     <Text Include="baseball.txt" />
     <Text Include="baseballascii.txt" />
     <Text Include="bigfirm.txt" />
@@ -170,6 +171,7 @@
     <Text Include="endingcredit.txt" />
     <Text Include="golf.txt" />
     <Text Include="golfascii.txt" />
+    <Text Include="happyendingascii.txt" />
     <Text Include="hospital.txt" />
     <Text Include="hospitalascii.txt" />
     <Text Include="houseascii.txt" />
@@ -191,6 +193,7 @@
     <Text Include="minifirm.txt" />
     <Text Include="house.txt" />
     <Text Include="minifirmascii.txt" />
+    <Text Include="normalendingascii.txt" />
     <Text Include="penthouse.txt" />
     <Text Include="penthouseascii.txt" />
     <Text Include="policeagency.txt" />

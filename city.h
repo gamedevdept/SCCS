@@ -14,6 +14,7 @@ class City
 public:
 	City();
 	void drawMap();
+	void mapUpgrade();
 	void statusBar();
 	int skipDate();
 	void purchase(string path, int x, int y);
