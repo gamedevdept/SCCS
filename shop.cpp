@@ -101,7 +101,7 @@ void Shop::upgrade()
 		}
 		else
 		{
-			data.open(city.map[a[sel].y][a[sel].x]w.upgradepath);
+			data.open(city.map[a[sel].y][a[sel].x].upgradepath);
 			getline(data, line);
 			getline(data, line);
 			getline(data, line);
